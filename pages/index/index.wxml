@@ -1,0 +1,89 @@
+<!--index.wxml-->
+<view class="page__header">
+
+  <!-- 输入框 -->
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" bindtap="go_search">
+        <icon class="weui-icon-search" type="search" size="12" color='#EDA8A3'></icon>
+        <view class="weui-search-bar__text">请输入歌手或歌曲名</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+  </view>
+</view>
+
+<!-- 个性推荐和主播电台头部 -->
+<view class='swiper_header'>
+  <view class='swiper_header_first'>个性推荐</view>
+  <view class='swiper_header_second'>主播电台</view>
+  <view class="{{Changeline?'swiper_header_line':'swiper_header_line_after'}}"></view>
+</view>
+
+<swiper class='Allswipew' bindchange="changeline">
+
+  <!-- 个性推荐页面 -->
+  <swiper-item class="comment">
+    <block>
+      <!-- 个性推荐里面的轮播图 -->
+      <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorcolor}}" indicator-active-color="{{indicatoractivecolor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{banner}}" wx:key="">
+          <swiper-item class="swiper_item">
+            <image src='{{item.imageUrl}}' class='banner' />
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <!-- 推荐导航四大入口 -->
+      <view class='comment_container_box'>
+        <view class='comment_private_FM comment_box'>
+          <view class='contaner_images'>
+            <image src='/images/previent_FM.png' class='commentImage'></image>
+          </view>
+          <text class='comment_text'>私人FM</text>
+        </view>
+        <view class='comment_daily comment_box'>
+          <view class='contaner_images'>
+            <image src='/images/day.png' class='commentImage'></image>
+          </view>
+          <text class='comment_text'>每日推荐</text>
+        </view>
+        <view class='comment_songList comment_box'>
+          <view class='contaner_images'>
+            <image src='/images/songList.png' class='commentImage'></image>
+          </view>
+          <text class='comment_text'>歌单</text>
+        </view>
+        <view class='comment_rank comment_box'>
+          <view class='contaner_images'>
+            <image src='/images/rank.png' class='commentImage'></image>
+          </view>
+          <text class='comment_text'>排行榜</text>
+        </view>
+      </view>
+    </block>
+
+
+    <!-- 精选歌单 -->
+    <view class='songsheet_container'>
+      <view wx:for="{{songsheet}}" wx:key="">
+        <image src='{{item.coverImgUrl}}'></image>
+      </view>
+    </view>
+
+
+  </swiper-item>
+
+  <!-- 主播电台页面 -->
+  <swiper-item class="radio">
+
+  </swiper-item>
+
+</swiper>

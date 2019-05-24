@@ -1,0 +1,131 @@
+/**index.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #FBFCFE;
+}
+page__header{
+  width:100%;
+}
+.weui-search-bar{
+  background-color:#DC4238;
+  border: 1px  solid #DC4238;
+}
+.weui-search-bar__box{
+  position: relative;
+}
+.weui-icon-search_in-box{
+  position: absolute;
+  left: 50%;
+  transform:translateX(-50%);
+}
+.weui-search-bar__label{
+  /* width: 80%; */
+  
+  background-color: #DE655C;
+  border: 0px solid #DE655C;
+  border-radius: 20rpx;
+}
+.weui-search-bar__input{
+}
+.weui-search-bar__from{
+  height: 65rpx;
+}
+.weui-search-bar__text{
+  color: #EDA8A3; 
+}
+.swiper_header{
+background-color: #DC4238;
+padding-bottom: 10rpx
+}
+.swiper_header_first{
+  display:inline-block;
+  text-align: center;
+  width: 50%;
+  color: #ffffff;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+.swiper_header_second{
+  display:inline-block;
+  text-align: center;
+  width: 50%;
+  color: #ffffff;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+.swiper_header_line{
+  width: 8%;
+  height: 10rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  top:0; left:-189rpx; right:0;
+  margin:auto;
+  position: relative;
+}
+.swiper_header_line_hide{
+  display: none;
+}
+.swiper_header_line_after{
+  width: 8%;
+  height: 10rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  top:0; left:189rpx; right:0;
+  margin:auto;
+  position: relative;
+}
+.Allswipew{
+  width:100%;
+  height: 100%;
+}
+.comment{
+  width: 100%;
+  height: 100%;
+ 
+}
+.banner{
+  position:absolute;
+  top:0; left:0; right:0;
+  margin:auto;
+  width: 94%;
+  height: 90%;
+  border-radius: 15rpx;
+}
+.swiper_item{
+  padding-bottom: 15rpx;
+}
+.comment_container_box{
+  display: flex;
+  height: 130rpx;
+  position:relative;
+  margin-top: 20rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 1px solid #EDEEF0;
+}
+.comment_box{
+  width: 25%;
+  text-align: center;
+}
+.contaner_images{
+  width: 80rpx;
+  height: 40px;
+  background-color: #DC4238;
+  border-radius: 50%;
+  left: 50%;
+  transform: translate(60%)
+}
+.commentImage{
+  width:50%;
+  height: 50%;
+  top:50%;
+  left: 50%;
+  transform: translate(0%,50%)
+}
+.comment_text{
+  font-size: 14px;
+}
+.songsheet_container{
+  width: 100%;
+ 
+}

@@ -1,0 +1,59 @@
+<!--pages/search/search.wxml-->
+<view class="searchPage">
+
+<!-- 搜索框 -->
+  <view class="page__bd">
+    <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                <icon class="weui-icon-search_in-box" type="search" size="14" color='#EDA8A3' ></icon>
+                <input focus='true' type="text" class="weui-search-bar__input" 
+                 placeholder="请输入歌手或歌曲名" placeholder-style="color:#EDA8A3" 
+                 value='{{inputValue}}' bindinput="getsearchKey" bindblur="routeSearchResPage" bindconfirm="searchover" />
+                <!-- 点击×可以清空正在输入 -->
+                <view class="weui-icon-clear">
+                    <icon type="clear" size="14" color='#EDA8A3' bindtap="clearInput"></icon>
+                </view>
+            </view>
+        </view>
+        <view class="weui-search-bar__cancel-btn {{isCancel?'':'hide'}}" bindtap="cancel">取消</view>
+    </view>
+  </view>
+
+  <!-- 热门搜索 -->
+  <view  class="{{showView?'hot_keys':'header_view_hide'}}">
+    <view class="title">热门搜索</view>
+    <view class='hot_key_box'>
+    <view wx:for="{{hotsongs}}" wx:key="">
+    <view class='hot_keys_box_item'>{{item.first}}</view>
+    </view>
+    </view>
+  </view>
+  
+  <!-- 搜索历史 -->
+  <view  class="{{showView?'option':'header_view_hide'}}">
+    <text class="title history">搜索历史</text>
+  <icon type='clear' bindtap="clearHistory" class="title record" color="#DE655C" ></icon>
+  <view class="hot_key_box">
+    <text class="hot_keys_box_item" wx:for="{{history}}" wx:key="" data-index="{{index}}" bindtap="routeSearchResPage">{{item}}</text>
+  </view>
+  </view>
+  
+<!-- 搜索建议 -->
+  <view class="{{showsongresult?'search_suggest':'header_view_hide'}}">
+  <text wx:for="{{searchsuggest}}" wx:key="" class='search_result'>{{item.keyword}}</text>
+  </view>
+
+
+  <!-- 搜索结果 -->
+  <view class='search_result_songs'>
+
+  <view wx:for="{{searchresult}}" wx:key="" class='search_result_song_item'>
+  <view class='search_result_song_song_name'>{{item.name}}</view>
+  <view class='search_result_song_song_art-album'>{{item.artists[0].name}} - {{item.album.name}}</view>
+  </view>
+
+  </view>
+
+
+  </view>

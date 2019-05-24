@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/love/love",
+    "pages/me/me",
+    "pages/search/search",
+    "custom-tab-bar/index"
+    
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#DC4238",
+    "navigationBarTitleText": "云音乐",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#C62F2F",
+    "backgroundTextStyle": "light",
+    "onReachBottomDistance": 50,
+    "enablePullDownRefresh": false,
+    "pageOrientation": "auto"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#8D8D8D",
+    "selectedColor": "#DC4238",
+    "backgroundColor": "#f6f6f8",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "乐库",
+        "iconPath": "images/music.png",
+        "selectedIconPath": "images/selected-music.png"
+      },
+      {
+        "pagePath": "pages/love/love",
+        "text": "收藏",
+        "iconPath": "images/love.png",
+        "selectedIconPath": "images/selected-love.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/selected-me.png"
+      }
+    ]
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "sitemapLocation": "sitemap.json"
+}
