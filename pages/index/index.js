@@ -14,7 +14,8 @@ Page({
     duration:1700,
     circular:true,
     Changeline: true,
-    songsheet:[],
+    songsheet_index:[],//歌单列表
+    songsheet:[]
     
   },
 
@@ -42,11 +43,13 @@ Page({
   },
   getsongsheet:function(){
     API.getsongsheet({order:'hot'}).then(res=>{
-      console.log(res)
       if(res.code === 200){
         this.setData({
-          songsheet:res.playlists
+          songsheet:res.playlists,
+          songsheet_index: res.playlists.slice(0, 6)
         })
+        console.log(res.playlists)
+        console.log(res.playlists.slice(0, 6))
       }
     })
   },

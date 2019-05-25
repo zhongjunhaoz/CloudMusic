@@ -82,6 +82,7 @@ padding-bottom: 10rpx
 .comment{
   width: 100%;
   height: 100%;
+  overflow:scroll;
  
 }
 .banner{
@@ -125,7 +126,26 @@ padding-bottom: 10rpx
 .comment_text{
   font-size: 14px;
 }
-.songsheet_container{
-  width: 100%;
+.songsheet_container_image{
+  width: 95%;
+  height: 220rpx;
+  /* padding: 10rpx; */
+  margin: 5rpx;
+  border-radius: 8rpx;
+}
+.songsheet_container_text{
+  font-size: 12px;
+  height: 20rpx;
+  width: 33%;
+}
+.songsheet_items_allbox{
+  text-align:center;
+}
+.songsheet_items_box{
  
+}
+.songsheet_item_box{
+  width: 33%;
+  display: inline-block;
+  box-sizing: border-box;
 }

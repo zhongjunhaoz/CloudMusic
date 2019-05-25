@@ -29,7 +29,7 @@
 
 <swiper class='Allswipew' bindchange="changeline">
 
-  <!-- 个性推荐页面 -->
+  <!-- 个性推荐swiper页面 -->
   <swiper-item class="comment">
     <block>
       <!-- 个性推荐里面的轮播图 -->
@@ -72,9 +72,14 @@
 
 
     <!-- 精选歌单 -->
-    <view class='songsheet_container'>
-      <view wx:for="{{songsheet}}" wx:key="">
-        <image src='{{item.coverImgUrl}}'></image>
+    <view class='songsheet_items_allbox'>
+      <text>精选歌单 ></text>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{songsheet_index}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.coverImgUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text'>{{item.name}}</text>
+        </view>
+        
       </view>
     </view>
 
