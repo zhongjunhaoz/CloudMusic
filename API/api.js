@@ -33,5 +33,8 @@ module.exports ={
   },
   getsongsheet:(data)=>{
     return request('/top/playlist',data)
+  },
+  getNewSong:(data)=>{
+    return request('/personalized/newsong',data)
   }
 }

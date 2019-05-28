@@ -83,7 +83,6 @@ padding-bottom: 10rpx
   width: 100%;
   height: 100%;
   overflow:scroll;
- 
 }
 .banner{
   position:absolute;
@@ -126,6 +125,14 @@ padding-bottom: 10rpx
 .comment_text{
   font-size: 14px;
 }
+.songsheet_items_allbox{
+  margin-top: 10rpx;
+}
+.songsheet_container_title{
+  font-size: 17px;
+  font-weight: bold;
+  padding-left: 10rpx;
+}
 .songsheet_container_image{
   width: 95%;
   height: 220rpx;
@@ -134,17 +141,16 @@ padding-bottom: 10rpx
   border-radius: 8rpx;
 }
 .songsheet_container_text{
-  font-size: 12px;
-  height: 20rpx;
-  width: 33%;
-}
-.songsheet_items_allbox{
-  text-align:center;
-}
-.songsheet_items_box{
- 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  
+  -webkit-box-orient: vertical;
+  font-size: 10px;
+  margin-top: 10rpx;
 }
 .songsheet_item_box{
+  padding-top: 10rpx;
   width: 33%;
   display: inline-block;
   box-sizing: border-box;

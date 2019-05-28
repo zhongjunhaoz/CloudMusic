@@ -14,14 +14,16 @@ Page({
     duration:1700,
     circular:true,
     Changeline: true,
-    songsheet_index:[],//歌单列表
-    songsheet:[]
-    
+    songsheet_index:[],//首页歌单列表前6
+    songsheet:[],//歌单全部
+    newsong_index:[],//首页最新音乐前6
+    newsong:[],//最新音乐全部
   },
 
   onLoad: function () {
     this.getBanner();
     this.getsongsheet();
+    this.getNewSong();
 },
   // 点击跳转到搜索页面
   go_search: function () {
@@ -50,6 +52,18 @@ Page({
         })
         console.log(res.playlists)
         console.log(res.playlists.slice(0, 6))
+      }
+    })
+  },
+  getNewSong:function(){
+    API.getNewSong({}).then(res=>{
+      if (res.code === 200) {
+        this.setData({
+          newsong: res.result,
+          newsong_index: res.result.slice(0, 6)
+        })
+        console.log(res.result)
+        console.log(res.result.slice(0, 6))
       }
     })
   },

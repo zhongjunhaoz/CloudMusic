@@ -31,6 +31,7 @@
 
   <!-- 个性推荐swiper页面 -->
   <swiper-item class="comment">
+
     <block>
       <!-- 个性推荐里面的轮播图 -->
       <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorcolor}}" indicator-active-color="{{indicatoractivecolor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
@@ -40,6 +41,7 @@
           </swiper-item>
         </block>
       </swiper>
+    </block>
 
       <!-- 推荐导航四大入口 -->
       <view class='comment_container_box'>
@@ -68,12 +70,10 @@
           <text class='comment_text'>排行榜</text>
         </view>
       </view>
-    </block>
-
-
+    
     <!-- 精选歌单 -->
     <view class='songsheet_items_allbox'>
-      <text>精选歌单 ></text>
+      <text class='songsheet_container_title'>精选歌单 ></text>
       <view class='songsheet_items_box'>
         <view wx:for="{{songsheet_index}}" wx:key="" class='songsheet_item_box'>
           <image src='{{item.coverImgUrl}}' class="songsheet_container_image"></image>
@@ -84,6 +84,18 @@
     </view>
 
 
+    <!-- 最新音乐 -->
+    <view class='songsheet_items_allbox'>
+      <text class='songsheet_container_title'>最新音乐 ></text>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{newsong_index}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.song.album.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    
   </swiper-item>
 
   <!-- 主播电台页面 -->
