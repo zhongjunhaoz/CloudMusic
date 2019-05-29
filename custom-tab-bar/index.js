@@ -21,9 +21,9 @@ Component({
         text: "我的"
       }]
   },
-  attached() {
-  },
+
   methods: {
+
     switchTab(e) {
       const data = e.currentTarget.dataset
       const url = data.path
@@ -32,5 +32,6 @@ Component({
         selected: data.index
       })
     }
+    
   }
 })

@@ -18,19 +18,20 @@ Page({
     songsheet:[],//歌单全部
     newsong_index:[],//首页最新音乐前6
     newsong:[],//最新音乐全部
+    dj_index:[],//首页电台推荐
+    dj:[],//全部电台
+    // topcomments:[],//热门评论
+    programrecommend:[],//主播电台轮播图
   },
 
   onLoad: function () {
     this.getBanner();
     this.getsongsheet();
     this.getNewSong();
+    this.getDjRadios();
+    // this.getTopComments();
+    this.getProgramRecommend();
 },
-  // 点击跳转到搜索页面
-  go_search: function () {
-    wx.navigateTo({
-      url: '../search/search',
-    });
-  },
 
   getBanner:function(){
     API.getBanner({ type: 2 }).then(res => {
@@ -67,6 +68,47 @@ Page({
       }
     })
   },
+
+  getDjRadios:function(){
+    API.getDjRadios({}).then(res=>{
+        this.setData({
+          dj: res.djRadios,
+          dj_index: res.djRadios.slice(0,6)
+        })
+        console.log(res.djRadios),
+          console.log(res.djRadios.slice(0, 6))
+    })
+  },
+
+  // getTopComments: function () {
+  //   API.getTopComments({ id: 186016,type:0}).then(res => {
+  //     if (res.code === 200) {
+  //       this.setData({
+  //         topcomments: res.hotComments,
+  //       })
+  //     }
+  //   })
+  // },
+
+  getProgramRecommend:function(){
+    API.getProgramRecommend({}).then(res=>{
+      if(res.code === 200){
+        this.setData({
+          programrecommend: res.programs,
+          // programrecommend_index: res.programsslice(6, 9)
+        })
+        console.log(res.programs)
+      }
+    })
+  },
+  // 点击跳转到搜索页面
+  go_search: function () {
+    wx.navigateTo({
+      url: '../search/search',
+    });
+  },
+
+  // 换swiper
   changeline:function(e){
     let that = this;
     if (e.detail.current ){

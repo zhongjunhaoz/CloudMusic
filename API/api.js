@@ -36,5 +36,14 @@ module.exports ={
   },
   getNewSong:(data)=>{
     return request('/personalized/newsong',data)
+  },
+  getDjRadios:(data)=>{
+    return request('/dj/recommend',data)
+  },
+  // getTopComments:(data)=>{
+  //   return request('/comment/hot',data)
+  // },
+  getProgramRecommend:(data)=>{
+    return request('/program/recommend',data)
   }
 }

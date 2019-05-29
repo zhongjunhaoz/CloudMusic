@@ -43,64 +43,140 @@
       </swiper>
     </block>
 
-      <!-- 推荐导航四大入口 -->
-      <view class='comment_container_box'>
-        <view class='comment_private_FM comment_box'>
-          <view class='contaner_images'>
-            <image src='/images/previent_FM.png' class='commentImage'></image>
-          </view>
-          <text class='comment_text'>私人FM</text>
+    <!-- 推荐导航四大入口 -->
+    <view class='comment_container_box'>
+      <view class='comment_private_FM comment_box'>
+        <view class='contaner_images'>
+          <image src='/images/previent_FM.png' class='commentImage'></image>
         </view>
-        <view class='comment_daily comment_box'>
-          <view class='contaner_images'>
-            <image src='/images/day.png' class='commentImage'></image>
-          </view>
-          <text class='comment_text'>每日推荐</text>
-        </view>
-        <view class='comment_songList comment_box'>
-          <view class='contaner_images'>
-            <image src='/images/songList.png' class='commentImage'></image>
-          </view>
-          <text class='comment_text'>歌单</text>
-        </view>
-        <view class='comment_rank comment_box'>
-          <view class='contaner_images'>
-            <image src='/images/rank.png' class='commentImage'></image>
-          </view>
-          <text class='comment_text'>排行榜</text>
-        </view>
+        <text class='comment_text'>私人FM</text>
       </view>
-    
+      <view class='comment_daily comment_box'>
+        <view class='contaner_images'>
+          <image src='/images/day.png' class='commentImage'></image>
+        </view>
+        <text class='comment_text'>每日推荐</text>
+      </view>
+      <view class='comment_songList comment_box'>
+        <view class='contaner_images'>
+          <image src='/images/songList.png' class='commentImage'></image>
+        </view>
+        <text class='comment_text'>歌单</text>
+      </view>
+      <view class='comment_rank comment_box'>
+        <view class='contaner_images'>
+          <image src='/images/rank.png' class='commentImage'></image>
+        </view>
+        <text class='comment_text'>排行榜</text>
+      </view>
+    </view>
+
     <!-- 精选歌单 -->
     <view class='songsheet_items_allbox'>
-      <text class='songsheet_container_title'>精选歌单 ></text>
+      <text class='songsheet_container_title'>精选歌单 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
       <view class='songsheet_items_box'>
         <view wx:for="{{songsheet_index}}" wx:key="" class='songsheet_item_box'>
           <image src='{{item.coverImgUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text'>{{item.name}}</text>
         </view>
-        
       </view>
     </view>
 
 
     <!-- 最新音乐 -->
-    <view class='songsheet_items_allbox'>
-      <text class='songsheet_container_title'>最新音乐 ></text>
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>最新音乐 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
       <view class='songsheet_items_box'>
         <view wx:for="{{newsong_index}}" wx:key="" class='songsheet_item_box'>
           <image src='{{item.song.album.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
+          <text class='newsong_artists'>{{item.song.artists[0].name}}</text>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 精选电台 -->
+    <view class='songsheet_items_allbox dj_allbox'>
+      <text class='songsheet_container_title'>精选电台 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{dj_index}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text'>{{item.name}}</text>
         </view>
       </view>
     </view>
 
-    
+    <!-- 热门评论 -->
+    <!-- <view class='songsheet_items_allbox'>
+      <view class='hotcomments_title_contrainer'>
+        <text class='songsheet_container_title'>热门评论</text>
+        <view class='title_leader_box'>
+          <image src='/images/dayuhao.png' class='title_leader'></image>
+        </view>
+      </view>
+      <view class='topcomments_container'>
+      <image src='{{item.user.avatarUrl}}'></image>
+      <text wx:for="{{topcomments}}" wx:key="" class='hotcomments'>{{item.content}}</text>
+      </view>
+    </view> -->
+
   </swiper-item>
+
 
   <!-- 主播电台页面 -->
   <swiper-item class="radio">
 
+    <block>
+      <!-- 主播电台轮播图 -->
+      <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorcolor}}" indicator-active-color="{{indicatoractivecolor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{banner}}" wx:key="">
+          <swiper-item class="swiper_item">
+            <image src='{{item.imageUrl}}' class='banner' />
+          </swiper-item>
+        </block>
+      </swiper>
+    </block>
+
+    <!-- 推荐导航四大入口 -->
+    <view class='comment_container_box'>
+      <view class='comment_private_FM comment_box'>
+        <view class='contaner_images'>
+          <image src='/images/sort.png' class='commentImage'></image>
+        </view>
+        <text class='comment_text'>电台分类</text>
+      </view>
+      <view class='comment_daily comment_box'>
+        <view class='contaner_images'>
+          <image src='/images/rank.png' class='commentImage'></image>
+        </view>
+        <text class='comment_text'>电台排行</text>
+      </view>
+      <view class='comment_songList comment_box'>
+        <view class='contaner_images'>
+          <image src='/images/fine.png' class='commentImage'></image>
+        </view>
+        <text class='comment_text'>付费精品</text>
+      </view>
+      <view class='comment_rank comment_box'>
+        <view class='contaner_images'>
+          <image src='/images/learn.png' class='commentImage'></image>
+        </view>
+        <text class='comment_text'>音乐课堂</text>
+      </view>
+    </view>
+
+    
+    
   </swiper-item>
 
 </swiper>

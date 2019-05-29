@@ -92,6 +92,14 @@ padding-bottom: 10rpx
   height: 90%;
   border-radius: 15rpx;
 }
+.radio_banner{
+  position:absolute;
+  top:0; left:0; right:0;
+  margin:auto;
+  width: 75%;
+  height: 90%;
+  border-radius: 15rpx;
+}
 .swiper_item{
   padding-bottom: 15rpx;
 }
@@ -126,7 +134,7 @@ padding-bottom: 10rpx
   font-size: 14px;
 }
 .songsheet_items_allbox{
-  margin-top: 10rpx;
+  margin-top: 25rpx;
 }
 .songsheet_container_title{
   font-size: 17px;
@@ -144,10 +152,11 @@ padding-bottom: 10rpx
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;  
+  -webkit-line-clamp: 1;  
   -webkit-box-orient: vertical;
-  font-size: 10px;
+  font-size: 13px;
   margin-top: 10rpx;
+  padding-left: 10rpx;
 }
 .songsheet_item_box{
   padding-top: 10rpx;
@@ -155,3 +164,41 @@ padding-bottom: 10rpx
   display: inline-block;
   box-sizing: border-box;
 }
+.title_leader_box{
+  text-align:center;
+  display: inline-block;
+}
+.title_leader{
+  width: 18px;
+  height: 16px;
+  display: inline-block;
+  vertical-align:middle;
+}
+.newsong_allbox{
+  margin-bottom: 40rpx;
+}
+.newsong_songname{
+  font-size: 13px;
+}
+.newsong_artists{
+  font-size: 10px;
+  padding-left: 10rpx;
+  padding-top: -10rpx;
+}
+.dj_allbox{
+  margin-bottom: 100rpx;
+}
+/* .hotcomments_title_contrainer{
+  display: block;
+  
+}
+.topcomments_container{
+  width: 80%;
+  
+}
+.hotcomments{
+  display:inline-block;
+  font-size: 14px;
+  
+} */
+
