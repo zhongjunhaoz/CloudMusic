@@ -20,7 +20,6 @@ Page({
   // 从接口到获取到数据导入到hotsongs
   gethotsongs() {
     API.gethotsongs({ type: 'new' }).then(res => {
-      console.log(res)
       // 大厂API接口的维定 code 0 没有问题
       if (res.code === 200) {  //严谨
         this.setData({
@@ -33,7 +32,6 @@ Page({
 // 搜索建议
   searchSuggest(){
     API.searchSuggest({ keywords: this.data.searchKey ,type:'mobile'}).then(res=>{
-      console.log(res)
       if(res.code === 200){
         this.setData({
           searchsuggest:res.result.allMatch
@@ -119,7 +117,6 @@ Page({
   // 搜索结果
   searchResult(){
     API.searchResult({ keywords: this.data.searchKey, type: 1, limit: 100, offset:2 }).then(res => {
-      console.log(res)
       if (res.code === 200) {
         this.setData({
           searchresult: res.result.songs
@@ -135,7 +132,6 @@ Page({
       showsongresult: false
     })
     that.searchResult();
-    // console.log(this.data.showView)
   }
 
 

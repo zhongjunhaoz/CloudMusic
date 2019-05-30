@@ -20,30 +20,39 @@ const request = (url, data) => {
 }
 module.exports ={
   gethotsongs:(data) =>{
-    return request('/search/hot',data)
+    return request('/search/hot',data)//热搜接口
   },
   searchSuggest:(data)=>{
-    return request('/search/suggest',data)
+    return request('/search/suggest',data)//搜索建议接口
   },
   searchResult:(data)=>{
-    return request('/search',data)
+    return request('/search',data)//搜索结果接口
   },
   getBanner:(data)=>{
-    return request('/banner',data)
+    return request('/banner',data)//个性推荐轮播
   },
   getsongsheet:(data)=>{
-    return request('/top/playlist',data)
+    return request('/top/playlist',data)//热门歌单接口
   },
   getNewSong:(data)=>{
-    return request('/personalized/newsong',data)
+    return request('/personalized/newsong',data)//最新音乐接口
   },
   getDjRadios:(data)=>{
-    return request('/dj/recommend',data)
+    return request('/dj/recommend',data)//电台推荐接口
   },
   // getTopComments:(data)=>{
   //   return request('/comment/hot',data)
   // },
   getProgramRecommend:(data)=>{
-    return request('/program/recommend',data)
+    return request('/program/recommend',data)//推荐节目接口
+  },
+  getRecommendType:(data)=>{
+    return request('/dj/recommend/type',data)//所有电台分类推荐
+  },
+  getRecommendMV:(data)=>{
+    return request('/personalized/mv',data)//推荐MV
+  },
+  getNewEst:(data)=>{
+    return request('/album/newest',data)//最新专辑
   }
 }

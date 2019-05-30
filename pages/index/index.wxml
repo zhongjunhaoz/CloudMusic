@@ -116,6 +116,36 @@
       </view>
     </view>
 
+
+    <!-- 推荐MV -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>推荐MV </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_MV}}" wx:key="" class='songsheet_item_box recommend_mv'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
+          <text class='newsong_artists'>{{item.artistName}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 最新专辑 -->
+    <view class='songsheet_items_allbox newsong_allbox newest_allbox '>
+      <text class='songsheet_container_title '>最新专辑 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{newest}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
+          <text class='newsong_artists'>{{item.artist.name}}</text>
+        </view>
+      </view>
+    </view>
     <!-- 热门评论 -->
     <!-- <view class='songsheet_items_allbox'>
       <view class='hotcomments_title_contrainer'>
@@ -175,8 +205,310 @@
       </view>
     </view>
 
-    
-    
+
+    <!-- 推荐节目 -->
+    <view class='songsheet_items_allbox'>
+      <text class='songsheet_container_title'>推荐节目 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{programrecommend}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.coverUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text'>{{item.reason}}</text>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 创作|翻唱 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>创作|翻唱 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_create}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 3D|电子 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>3D|电子 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_3D}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 情感调频 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>情感调频 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_feeling}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 音乐故事 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>音乐故事 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_musicstory}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 二次元 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>二次元 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_2D}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 有声书 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>有声书 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_audiobook}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 广播剧 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>广播剧 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_radioplay}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 美文读物 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>美文读物 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_reading}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 相声曲艺 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>相声曲艺 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_crosstalk}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 人文历史 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>人文历史 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_history}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 脱口秀 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>脱口秀 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_talkshow}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 娱乐|影视 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>娱乐|影视 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_movies}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 外语世界 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>外语世界 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_foreignlanguage}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 知识技能 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>知识技能 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_skills}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 亲子宝贝 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>亲子宝贝 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_baby}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 校园|教育 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>校园|教育 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_education}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 商业财经 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>商业财经 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_finance}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 科技科学 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>科技科学 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_science}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 路途|城市 -->
+    <view class='songsheet_items_allbox newsong_allbox tourism_box'>
+      <text class='songsheet_container_title '>路途|城市 </text>
+      <view class='title_leader_box'>
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{recommend_tourism}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
+          <text class='newsong_artists'>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
   </swiper-item>
 
 </swiper>

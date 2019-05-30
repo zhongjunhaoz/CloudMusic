@@ -79,7 +79,7 @@ padding-bottom: 10rpx
   width:100%;
   height: 100%;
 }
-.comment{
+.comment,.radio{
   width: 100%;
   height: 100%;
   overflow:scroll;
@@ -164,6 +164,12 @@ padding-bottom: 10rpx
   display: inline-block;
   box-sizing: border-box;
 }
+.recommend_mv{
+  padding-top: 10rpx;
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+}
 .title_leader_box{
   text-align:center;
   display: inline-block;
@@ -179,26 +185,29 @@ padding-bottom: 10rpx
 }
 .newsong_songname{
   font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;  
+  -webkit-box-orient: vertical;
 }
 .newsong_artists{
   font-size: 10px;
   padding-left: 10rpx;
   padding-top: -10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;  
+  -webkit-box-orient: vertical;
+
 }
 .dj_allbox{
+  /* margin-bottom: 100rpx; */
+}
+.tourism_box{
   margin-bottom: 100rpx;
 }
-/* .hotcomments_title_contrainer{
-  display: block;
-  
+.newest_allbox{
+  margin-bottom: 100rpx;
 }
-.topcomments_container{
-  width: 80%;
-  
-}
-.hotcomments{
-  display:inline-block;
-  font-size: 14px;
-  
-} */
-
