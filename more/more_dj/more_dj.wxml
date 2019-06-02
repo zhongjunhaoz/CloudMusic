@@ -1,0 +1,12 @@
+<!--more/more_dj/more_dj.wxml-->
+    <!-- 电台 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>电台</text>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{dj}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
+          <text class='newsong_artists'>{{item.dj.nickname}}</text>
+        </view>
+      </view>
+    </view>

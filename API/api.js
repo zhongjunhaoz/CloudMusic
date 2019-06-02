@@ -52,6 +52,9 @@ module.exports ={
   getRecommendMV:(data)=>{
     return request('/personalized/mv',data)//推荐MV
   },
+  getNewMv:(data)=>{
+    return request('/mv/first',data)//最新MV
+  },
   getNewEst:(data)=>{
     return request('/album/newest',data)//最新专辑
   }

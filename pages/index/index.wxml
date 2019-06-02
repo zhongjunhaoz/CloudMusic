@@ -57,7 +57,7 @@
         </view>
         <text class='comment_text'>每日推荐</text>
       </view>
-      <view class='comment_songList comment_box'>
+      <view class='comment_songList comment_box' bindtap= "go_songsheet">
         <view class='contaner_images'>
           <image src='/images/songList.png' class='commentImage'></image>
         </view>
@@ -73,8 +73,8 @@
 
     <!-- 精选歌单 -->
     <view class='songsheet_items_allbox'>
-      <text class='songsheet_container_title'>精选歌单 </text>
-      <view class='title_leader_box'>
+      <text class='songsheet_container_title' bindtap= "go_songsheet">精选歌单 </text>
+      <view class='title_leader_box' bindtap= "go_songsheet">
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
@@ -88,8 +88,8 @@
 
     <!-- 最新音乐 -->
     <view class='songsheet_items_allbox newsong_allbox'>
-      <text class='songsheet_container_title '>最新音乐 </text>
-      <view class='title_leader_box'>
+      <text class='songsheet_container_title' bindtap= "go_newsong">最新音乐 </text>
+      <view class='title_leader_box' bindtap= "go_newsong">
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
@@ -104,8 +104,8 @@
 
     <!-- 精选电台 -->
     <view class='songsheet_items_allbox dj_allbox'>
-      <text class='songsheet_container_title'>精选电台 </text>
-      <view class='title_leader_box'>
+      <text class='songsheet_container_title' bindtap= "go_dj">精选电台 </text>
+      <view class='title_leader_box' bindtap= "go_dj">
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
@@ -119,8 +119,8 @@
 
     <!-- 推荐MV -->
     <view class='songsheet_items_allbox newsong_allbox'>
-      <text class='songsheet_container_title '>推荐MV </text>
-      <view class='title_leader_box'>
+      <text class='songsheet_container_title' bindtap= "go_mv">推荐MV </text>
+      <view class='title_leader_box' bindtap= "go_mv">
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
@@ -134,8 +134,8 @@
 
     <!-- 最新专辑 -->
     <view class='songsheet_items_allbox newsong_allbox newest_allbox '>
-      <text class='songsheet_container_title '>最新专辑 </text>
-      <view class='title_leader_box'>
+      <text class='songsheet_container_title' bindtap= "go_newest">最新专辑 </text>
+      <view class='title_leader_box' bindtap= "go_newest">
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
@@ -208,8 +208,8 @@
 
     <!-- 推荐节目 -->
     <view class='songsheet_items_allbox'>
-      <text class='songsheet_container_title'>推荐节目 </text>
-      <view class='title_leader_box'>
+      <text class='songsheet_container_title' bindtap='go_program'>推荐节目 </text>
+      <view class='title_leader_box' bindtap='go_program'>
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
@@ -222,9 +222,9 @@
 
 
     <!-- 创作|翻唱 -->
-    <view class='songsheet_items_allbox newsong_allbox'>
-      <text class='songsheet_container_title '>创作|翻唱 </text>
-      <view class='title_leader_box'>
+    <view class='songsheet_items_allbox newsong_allbox' bindtab="go_program">
+      <text class='songsheet_container_title' bindtab="go_program">创作|翻唱 </text>
+      <view class='title_leader_box' >
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>

@@ -1,0 +1,11 @@
+<!--more/more_program/more_program.wxml-->
+    <view class='songsheet_items_allbox'>
+      <text class='songsheet_container_title'>推荐节目 </text>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{programrecommend}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.coverUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text'>{{item.reason}}</text>
+          <text class='newsong_artists'>{{item.radio.name}}</text>
+        </view>
+      </view>
+    </view>

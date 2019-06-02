@@ -6,7 +6,7 @@
   right: 0;
   height: 48px;
   background:#FAFBFD;
-  opacity: 0.86;
+  opacity: 0.93;
   display: flex;
   padding-bottom: env(safe-area-inset-bottom);
 }

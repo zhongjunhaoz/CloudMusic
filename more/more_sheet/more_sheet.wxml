@@ -1,0 +1,11 @@
+<!--more/more_sheet/more_sheet.wxml-->
+<view class='songsheet_items_allbox'>
+<text class='songsheet_container_title '>歌单</text>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{songsheet}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.coverImgUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text'>{{item.name}}</text>
+          <text class='newsong_artists'>{{item.creator.nickname}}</text>
+        </view>
+      </view>
+    </view>

@@ -5,8 +5,13 @@
     "pages/love/love",
     "pages/me/me",
     "pages/search/search",
-    "custom-tab-bar/index"
-    
+    "custom-tab-bar/index",
+    "more/more_sheet/more_sheet",
+    "more/more_newsong/more_newsong",
+    "more/more_dj/more_dj",
+    "more/more_mv/more_mv",
+    "more/more_newest/more_newest",
+    "more/more_program/more_program"
   ],
   "window": {
     "navigationBarBackgroundColor": "#DC4238",

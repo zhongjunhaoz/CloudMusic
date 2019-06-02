@@ -1,0 +1,12 @@
+<!--more/more_newsong/more_newsong.wxml-->
+    <!-- 最新音乐 -->
+    <view class='songsheet_items_allbox newsong_allbox'>
+      <text class='songsheet_container_title '>最新音乐 </text>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{newsong}}" wx:key="" class='songsheet_item_box'>
+          <image src='{{item.song.album.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
+          <text class='newsong_artists'>{{item.song.artists[0].name}}</text>
+        </view>
+      </view>
+    </view>
