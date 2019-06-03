@@ -1,12 +1,11 @@
-<!--more/more_dj/more_dj.wxml-->
-    <!-- 电台 -->
+<!--more/more_pay/more_pay.wxml-->
     <view class='songsheet_items_allbox newsong_allbox'>
-      <text class='songsheet_container_title '>精选电台</text>
       <view class='songsheet_items_box'>
-        <view wx:for="{{dj}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{pay}}" wx:key="" class='songsheet_item_box'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
-          <text class='newsong_artists'>{{item.dj.nickname}}</text>
+          <text class='newsong_artists'>更新至{{item.lastProgramName}}</text>
+          <text class='newsong_artists'>{{item.programCount}}个节目</text>
         </view>
       </view>
     </view>

@@ -180,6 +180,12 @@ padding-bottom: 10rpx
   display: inline-block;
   vertical-align:middle;
 }
+.changechange{
+  width: 14px;
+  height: 15px;
+  display: inline-block;
+  vertical-align:middle;
+}
 .newsong_allbox{
   margin-bottom: 40rpx;
 }
@@ -210,4 +216,13 @@ padding-bottom: 10rpx
 }
 .newest_allbox{
   margin-bottom: 100rpx;
+}
+.changechangetext{
+  font-size: 13px;
+  color: #8a8a8a;
+}
+.changechange_box{
+  display: initial;
+  position: absolute;
+  right: 40rpx;
 }

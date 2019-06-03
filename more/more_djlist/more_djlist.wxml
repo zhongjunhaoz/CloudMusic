@@ -1,0 +1,5 @@
+<view class='hot_key_box'>
+  <view wx:for="{{djlists}}" wx:key="">
+    <view class='hot_keys_box_item'>{{item.name}}</view>
+  </view>
+</view>

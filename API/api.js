@@ -57,5 +57,17 @@ module.exports ={
   },
   getNewEst:(data)=>{
     return request('/album/newest',data)//最新专辑
+  },
+  getTopList:(data)=>{
+    return request('/toplist',data)//排行榜
+  },
+  getDjList:(data)=>{
+    return request('/dj/catelist',data) //电台分类
+  },
+  getPay:(data)=>{
+    return request('/dj/paygift',data)//付费精品
+  },
+  getSonger:(data)=>{
+    return request('/toplist/artist',data)//歌手排行
   }
 }

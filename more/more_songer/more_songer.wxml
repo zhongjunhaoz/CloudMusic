@@ -1,0 +1,16 @@
+<view wx:for="{{songers}}" wx:key="" class='songer_box'>
+  <view class='songer_index_box'>
+    <text class='songer_index'>{{index + 1}}</text>
+  </view>
+  <view class='songer_img_box'>
+  <image src="{{item.picUrl}}" class='songer_img'></image>
+  </view>
+  <view class='songer_name_box'>
+  <text class='songer_name'>{{item.name}}</text>
+  <text class='songer_score'>{{item.score}}热度</text>
+  </view>
+ 
+
+
+  
+</view>

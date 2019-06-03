@@ -23,7 +23,7 @@ Page({
     // topcomments:[],//热门评论
     programrecommend: [], //推荐节目
     recommend_create: [], //电台：创作|翻唱
-    more_commend_create:[],
+    more_recommend_create:[],
     recommend_3D: [], //电台：3D|电子
     recommend_feeling: [], //情感调频
     recommend_musicstory: [], //音乐故事
@@ -129,7 +129,7 @@ Page({
     }).then(res => {
       this.setData({
         recommend_create: res.djRadios.slice(0,3),
-        more_commend_create:res.djRadios
+        more_recommend_create:res.djRadios
       })
     })
     API.getRecommendType({
@@ -302,7 +302,7 @@ Page({
   },
   go_mv:function(){
     wx.navigateTo({
-      url: '../../more/more_mv/more_mv',
+      url: '../../more/more_mv/more_mv', 
     })
   },
   go_newest:function(){
@@ -311,26 +311,47 @@ Page({
     })
   },
   go_program:function(){
+    console.log(123);
     wx.navigateTo({
       url: '../../more/more_program/more_program',
     })
     console.log(1)
   },
-  change:function(){
+  change_1:function(){
     let maxNum = this.data.more_recommend_create.length  //计算数据长度
     let r1 = parseInt(Math.random() * (maxNum - 0) + 0); //取【0-数据长度】内的整数随机数
     let r2 = parseInt(Math.random() * (maxNum - 0) + 0);
     let r3 = parseInt(Math.random() * (maxNum - 0) + 0);
     this.setData({
-      commend_create: []
+      recommend_create: []
     })
-    //重新取四组数据
-    this.data.commend_create.push(this.data.more_recommend_create[r1])
-    this.data.commend_create.push(this.data.more_recommend_create[r2])
-    this.data.commend_create.push(this.data.more_recommend_create[r3])
+    //重新取3组数据
+    this.data.recommend_create.push(this.data.more_recommend_create[r1])
+    this.data.recommend_create.push(this.data.more_recommend_create[r2])
+    this.data.recommend_create.push(this.data.more_recommend_create[r3])
     //重新赋值
     this.setData({
-      commend_create: this.data.commend_create
+      recommend_create: this.data.recommend_create
+    })
+  },
+  go_toplist:function(){
+    wx.navigateTo({
+      url: '../../more/more_toplist/more_toplist',
+    })
+  },
+  go_djlist:function(){
+    wx.navigateTo({
+      url: '../../more/more_djlist/more_djlist',
+    })
+  },
+  go_pay:function(){
+    wx.navigateTo({
+      url: '../../more/more_pay/more_pay',
+    })
+  },
+  go_songer:function(){
+    wx.navigateTo({
+      url: '../../more/more_songer/more_songer',
     })
   },
   // 换swiper
