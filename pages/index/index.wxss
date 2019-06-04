@@ -26,8 +26,6 @@ page__header{
   border: 0px solid #DE655C;
   border-radius: 20rpx;
 }
-.weui-search-bar__input{
-}
 .weui-search-bar__from{
   height: 65rpx;
 }
@@ -207,9 +205,6 @@ padding-bottom: 10rpx
   -webkit-line-clamp: 1;  
   -webkit-box-orient: vertical;
 
-}
-.dj_allbox{
-  /* margin-bottom: 100rpx; */
 }
 .tourism_box{
   margin-bottom: 100rpx;
