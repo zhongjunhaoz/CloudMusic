@@ -33,7 +33,7 @@
       <!-- 个性推荐里面的轮播图 -->
       <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorcolor}}" indicator-active-color="{{indicatoractivecolor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
         <block wx:for="{{banner}}" wx:key="">
-          <swiper-item class="swiper_item">
+          <swiper-item class="swiper_item" data-id="{{item.targetId}}" bindtap='handlePlayAudio'> <!--点击之后获取到歌曲的ID存放到data-id -->
             <image src='{{item.imageUrl}}' class='banner' />
           </swiper-item>
         </block>
@@ -86,7 +86,7 @@
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{newsong_index}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{newsong_index}}" wx:key="" class='songsheet_item_box' data-id="{{item.id}}" bindtap='handlePlayAudio'>
           <image src='{{item.song.album.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
           <text class='newsong_artists'>{{item.song.artists[0].name}}</text>

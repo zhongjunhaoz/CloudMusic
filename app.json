@@ -15,7 +15,8 @@
     "more/more_toplist/more_toplist",
     "more/more_djlist/more_djlist",
     "more/more_pay/more_pay",
-    "more/more_songer/more_songer"
+    "more/more_songer/more_songer",
+    "play/play"
   ],
   "window": {
     "navigationBarBackgroundColor": "#DC4238",
