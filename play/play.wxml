@@ -1,5 +1,6 @@
 
 <view class="body">
+  <image src="{{song.al.picUrl}}" class="background_img" ></image>
   <view class="sing-brief">
     <view class="sing-name">
       {{song.name}}
@@ -11,11 +12,9 @@
     </view>
   </view>
   <view class="sing-show">
-    <!-- <image src="../../images/stick.png" class="coverImgStick"/>
-    <image src="../../images/disk.png" class="coverImgBg"/> -->
+    <!-- <image src="../images/stick.png" class="coverImgStick"/>
+    <image src="../images/disk.png" class="coverImgBg"/> -->
     <image src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}"/>
   </view>
-  <view >
-    <button type="primary" bindtap="handleToggleBGAudio">{{isPlay ? '暂停' : '播放'}}</button>
-  </view>
+    <!-- <button type="primary" bindtap="handleToggleBGAudio">{{isPlay ? '暂停' : '播放'}}</button> -->
 </view>

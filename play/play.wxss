@@ -2,11 +2,22 @@
 page, .body {
   height: 100%;
 }
+.background_img{ /* 播放界面毛玻璃效果 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(20px);
+  z-index: -1;
+  transform: scale(1.2);
+}
 .sing-brief {
   position: absolute;
   left: 10px;
   top: 10px;
-  color: #bb4e55;
+  color: #ffffff;
 }
 .sing-name {
   font-size: 20px;
