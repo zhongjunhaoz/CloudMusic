@@ -21,6 +21,17 @@ Page({
         })
       }
     })
-  }
+  },
+    // 获取到歌曲ID
+    handlePlayAudio: function (event) {
+      const audioId = event.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: `../../play/play?id=${audioId}`
+      })
+      console.log(audioId);
+      console.log(event)
+    }
+
+
  
 })

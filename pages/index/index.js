@@ -374,6 +374,11 @@ Page({
       url: '../../more/more_songer/more_songer',
     })
   },
+  go_MV:function(){
+    wx.navigateTo({
+      url: '../../more/more_mv/more_mv',
+    })
+  },
   // 换swiper
   changeline: function(e) {
     let that = this;
@@ -722,7 +727,33 @@ handlePlayAudio: function (event) { //event 对象，自带，点击事件后触
     })
     console.log(event);
     console.log(audioId);
-    
+  },
+  handlePlayMv:function(event){
+    const mvId = event.currentTarget.dataset.id;
+    wx.navigateTo({                                 //获取到id带着完整url后跳转到play页面
+      url: `../../play/play_mv?id=${mvId}`
+    })
+  },
+  handleSheet: function (event) { //event 对象，自带，点击事件后触发，event有type,target，timeStamp，currentTarget属性
+    const sheetId = event.currentTarget.dataset.id; //获取到event里面的歌曲id赋值给audioId
+    wx.navigateTo({                                 //获取到id带着完整url后跳转到play页面
+      url: `../../more/more_sheet/moremore_sheet?id=${sheetId}`
+    })
+    console.log(sheetId);
+  },
+  handlePlayDj:function(){
+    wx.showModal({
+      content: '不支持电台播放',
+      cancelColor:'#DE655C',
+      confirmColor: '#DE655C',
+      showCancel:false,
+      confirmText:'返回',
+      complete(){
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+      }
+    })
   }
   
 })

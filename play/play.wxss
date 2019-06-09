@@ -1,8 +1,8 @@
-/* pages/play/play.wxss */
 page, .body {
   height: 100%;
 }
-.background_img{ /* 播放界面毛玻璃效果 */
+/* 播放界面毛玻璃效果 */
+.background_img{ 
   position: fixed;
   top: 0;
   left: 0;
@@ -11,9 +11,9 @@ page, .body {
   height: 100%;
   filter: blur(20px);
   z-index: -1;
-  transform: scale(1.2);
+  transform: scale(1.5); /*和网易云音乐对比了一下，发现他们是也是放大1.5倍*/
 }
-.sing-brief {
+/* .sing-brief {
   position: absolute;
   left: 10px;
   top: 10px;
@@ -25,6 +25,27 @@ page, .body {
 }
 .singer-name {
   font-size: 12px;
+} */
+.sing-brief {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.sing-name {
+  font-size: 18px;
+  color: #ffffff;
+}
+.singer-name{
+  display:flex;
+  font-size:13px;
+  color:#ffffff;
+  text-align:center;
+  line-height:12px;
+  justify-content:center;
+}
+.singer-name-text{
+  padding-left: 5rpx;
+  padding-right: 5rpx;
 }
 .sing-show {
   position: relative;
@@ -56,9 +77,24 @@ page, .body {
   width: 400rpx;
   height: 400rpx;
   border-radius: 50%;
+  position:absolute;
+  top:26%;
+}
+.play_suspend{
+  height:15%;
+  text-align:center;
+  line-height:90px;
+
+}
+.img_play_suspend{
+  width: 10%;
+  height: 40%;
 }
 .coverImg.play {
-  animation: rotate 15s linear infinite;
+  animation: rotate 15s linear infinite ;
+}
+.hide{
+  display: none;
 }
 @keyframes rotate {
   0%{

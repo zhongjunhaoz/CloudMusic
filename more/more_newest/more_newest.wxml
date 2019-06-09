@@ -2,7 +2,7 @@
     <view class='songsheet_items_allbox newsong_allbox newest_allbox '>
       <text class='songsheet_container_title'>最新专辑 </text>
       <view class='songsheet_items_box'>
-        <view wx:for="{{newest}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{newest}}" wx:key="" class='songsheet_item_box' data-id="{{item.id}}" bindtap='handlePlayAudio'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
           <text class='newsong_artists'>{{item.artist.name}}</text>

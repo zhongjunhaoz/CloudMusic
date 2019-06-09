@@ -61,7 +61,7 @@ module.exports ={
     return request('/album/newest',data)//最新专辑
   },
   getTopList:(data)=>{
-    return request('/toplist',data)//排行榜
+    return request('/top/list',data)//排行榜
   },
   getDjList:(data)=>{
     return request('/dj/catelist',data) //电台分类

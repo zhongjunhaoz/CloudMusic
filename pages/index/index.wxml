@@ -41,11 +41,11 @@
     </block>
     <!-- 推荐导航四大入口 -->
     <view class='comment_container_box'>
-      <view class='comment_daily comment_box'>
+      <view class='comment_daily comment_box' bindtap="go_MV">
         <view class='contaner_images'>
-          <image src='/images/day.png' class='commentImage'></image>
+          <image src='/images/MV.png' class='commentImage'></image>
         </view>
-        <text class='comment_text'>每日推荐</text>
+        <text class='comment_text'>推荐MV</text>
       </view>
       <view class='comment_private_FM comment_box'>
         <view class='contaner_images' bindtap='go_songer'>
@@ -73,7 +73,7 @@
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{songsheet_index}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{songsheet_index}}" wx:key="" class='songsheet_item_box' data-id="{{item.id}}" bindtap='handleSheet'>
           <image src='{{item.coverImgUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text'>{{item.name}}</text>
         </view>
@@ -100,7 +100,7 @@
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{dj_index}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{dj_index}}" wx:key="" class='songsheet_item_box'  bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text'>{{item.name}}</text>
         </view>
@@ -113,7 +113,7 @@
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_MV}}" wx:key="" class='songsheet_item_box recommend_mv'>
+        <view wx:for="{{recommend_MV}}" wx:key="" class='songsheet_item_box recommend_mv' data-id="{{item.id}}" bindtap='handlePlayMv'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
           <text class='newsong_artists'>{{item.artistName}}</text>
@@ -127,26 +127,13 @@
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{newest}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{newest}}" wx:key="" class='songsheet_item_box' data-id="{{item.id}}" bindtap='handlePlayAudio'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
           <text class='newsong_artists'>{{item.artist.name}}</text>
         </view>
       </view>
     </view>
-    <!-- 热门评论 -->
-    <!-- <view class='songsheet_items_allbox'>
-      <view class='hotcomments_title_contrainer'>
-        <text class='songsheet_container_title'>热门评论</text>
-        <view class='title_leader_box'>
-          <image src='/images/dayuhao.png' class='title_leader'></image>
-        </view>
-      </view>
-      <view class='topcomments_container'>
-      <image src='{{item.user.avatarUrl}}'></image>
-      <text wx:for="{{topcomments}}" wx:key="" class='hotcomments'>{{item.content}}</text>
-      </view>
-    </view> -->
   </swiper-item>
   <!-- 主播电台页面 -->
   <swiper-item class="radio">
@@ -154,7 +141,7 @@
       <!-- 主播电台轮播图 -->
       <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorcolor}}" indicator-active-color="{{indicatoractivecolor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
         <block wx:for="{{banner}}" wx:key="">
-          <swiper-item class="swiper_item">
+          <swiper-item class="swiper_item" data-id="{{item.targetId}}" bindtap='handlePlayAudio'>
             <image src='{{item.imageUrl}}' class='banner' />
           </swiper-item>
         </block>
@@ -190,12 +177,12 @@
     <!-- 创作|翻唱 -->
     <view class='songsheet_items_allbox newsong_allbox'>
       <text class='songsheet_container_title'>创作|翻唱</text>
-      <view class="changechange_box" bindtap="change_1">
+      <view class="changechange_box" bindtap="change_1" >
         <image src="../../images/changechange.png" class="title_leader changechange"></image>
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_create}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_create}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -210,7 +197,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_3D}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_3D}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -225,7 +212,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_feeling}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_feeling}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -240,7 +227,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_musicstory}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_musicstory}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -255,7 +242,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_2D}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_2D}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -270,7 +257,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_audiobook}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_audiobook}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -285,7 +272,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_radioplay}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_radioplay}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -300,7 +287,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_reading}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_reading}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -315,7 +302,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_crosstalk}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_crosstalk}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -330,7 +317,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_history}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_history}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -345,7 +332,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_talkshow}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_talkshow}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -360,7 +347,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_movies}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_movies}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -375,7 +362,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_foreignlanguage}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_foreignlanguage}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -390,7 +377,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_skills}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_skills}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -405,7 +392,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_baby}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_baby}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -420,7 +407,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_education}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_education}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -435,7 +422,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_finance}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_finance}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -450,7 +437,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_science}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_science}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>
@@ -465,7 +452,7 @@
         <text class="changechangetext">换一换</text>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{recommend_tourism}}" wx:key="" class='songsheet_item_box'>
+        <view wx:for="{{recommend_tourism}}" wx:key="" class='songsheet_item_box' bindtap='handlePlayDj'>
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.rcmdtext}}</text>
           <text class='newsong_artists'>{{item.name}}</text>

@@ -5,7 +5,10 @@ const app = getApp();
 Page({
   
   data: {
-    toplists:[]//所有榜单
+    toplists0:[],
+    toplists1:[],
+    toplists2:[],
+    toplists3:[],
   },
 
  
@@ -14,12 +17,63 @@ Page({
   },
 
   getTopList: function () {
-    API.getTopList({}).then(res => {
-      if (res.code === 200) {
+    
+    API.getTopList({
+      idx:0,
+    }).then(res => {
+      // console.log(res.playlist)
         this.setData({
-          toplists: res.list
+          toplists0: res.playlist
         })
-      }
+    })
+
+    API.getTopList({
+      idx:1,
+    }).then(res => {
+      // console.log(res.playlist)
+        this.setData({
+          toplists1: res.playlist
+        })
+    })
+
+    API.getTopList({
+      idx:2,
+    }).then(res => {
+      // console.log(res.playlist)
+        this.setData({
+          toplists2: res.playlist
+        })
+    })
+
+
+    API.getTopList({
+      idx:3,
+    }).then(res => {
+      // console.log(res.playlist)
+        this.setData({
+          toplists3: res.playlist
+        })
     })
   },
+
+  go_toplist0:function(){
+    wx.navigateTo({
+      url: '../toplist0/toplist0',
+    })
+  },
+  go_toplist1:function(){
+    wx.navigateTo({
+      url: '../toplist1/toplist1',
+    })
+  },
+  go_toplist2:function(){
+    wx.navigateTo({
+      url: '../toplist2/toplist2',
+    })
+  },
+  go_toplist3:function(){
+    wx.navigateTo({
+      url: '../toplist3/toplist3',
+    })
+  }
 })

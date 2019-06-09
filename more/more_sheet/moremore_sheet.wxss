@@ -1,0 +1,38 @@
+@import "../../pages/search/search";
+@import "../more_songer/more_songer";
+
+.songer_box {
+  height: 100rpx;
+}
+
+.songer_img_box {
+  width: 90%;
+}
+
+.songer_index {
+  line-height: 47px;
+}
+
+.search_result_songs {
+  margin-top: 0rpx;
+}
+
+.songer_box {
+  padding: 0rpx;
+}
+
+.search_result_song_item {
+  margin: 8rpx;
+}
+
+.songer_index {
+  font-size: 35rpx;
+}
+
+.search_result_song_song_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

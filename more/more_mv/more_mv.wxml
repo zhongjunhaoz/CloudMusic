@@ -2,7 +2,7 @@
     <view class='songsheet_items_allbox newsong_allbox'>
       <text class='songsheet_container_title'>MV</text>
       <view class='songsheet_items_box'>
-        <view wx:for="{{mv}}" wx:key="" class='songsheet_item_box recommend_mv'>
+        <view wx:for="{{mv}}" wx:key="" class='songsheet_item_box recommend_mv' data-id="{{item.id}}" bindtap='handlePlayMv'>
           <image src='{{item.cover}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
           <text class='newsong_artists'>{{item.artistName}}</text>

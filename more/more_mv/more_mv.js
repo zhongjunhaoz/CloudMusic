@@ -21,5 +21,11 @@ Page({
         })
       }
     })
-  }
+  },
+  handlePlayMv:function(event){
+    const mvId = event.currentTarget.dataset.id;
+    wx.navigateTo({                                 //获取到id带着完整url后跳转到play页面
+      url: `../../play/play_mv?id=${mvId}`
+    })
+  },
 })

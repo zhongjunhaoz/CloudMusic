@@ -1,0 +1,14 @@
+<!--more/toplist0/toplist0.wxml-->
+<view class='search_result_songs'>
+  <view wx:for="{{toplists}}" wx:key="" class='search_result_song_item songer_box' data-id="{{item.id}}" bindtap='handlePlayAudio'>
+    <view class='songer_index_box'>
+      <text class='songer_index'>{{index + 1}}</text>
+    </view>
+    <view class='songer_img_box'>
+      <view class='search_result_song_song_name'>{{item.name}}</view>
+      <view class='search_result_song_song_art-album'>{{item.ar[0].name}} - {{item.al.name}}</view>
+    </view>
+
+  </view>
+
+</view>

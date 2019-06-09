@@ -1,0 +1,14 @@
+<view class="mv_box">
+    <video src="{{mv.brs['480']}}" class="mv" autoplay="{{autoplay}}" loop="{{loop}}" direction="{{0}}" show-fullscreen-btn="{{showfullscreenbtn}}"
+    show-center-play-btn="{{showcenterplaybtn}}" enable-progress-gesture="{{enableprogressgesture}}" show-mute-btn="{{showmutebtn}}" title="{{mv.name}}"
+    play-btn-position="{{center}}" object-fit="{{objectfit}}"></video>
+</view>
+
+<view class="mv_name">{{mv.name}}</view>
+<view class="mv_time"> 发行:  {{mv.publishTime}}</view>
+<view class="mv_time mv_times">播放次数:  {{mv.playCount}}</view>
+<view class="mv_time mv_desc">{{mv.desc}}</view>
+<view class="mv_time mv_desc mv_other">点赞: {{mv.likeCount}}</view>
+<view class="mv_time mv_desc mv_other">收藏: {{mv.subCount}}</view>
+<view class="mv_time mv_desc mv_other">评论: {{mv.commentCount}}</view>
+<view class="mv_time mv_desc mv_other">分享: {{mv.shareCount}}</view>

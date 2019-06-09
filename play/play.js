@@ -5,7 +5,7 @@ Page({
 
   data: {
     isPlay: false,
-    song:[]
+    song:[],
   },
 
  
@@ -24,11 +24,11 @@ Page({
         id: audioId    //http://neteasecloudmusicapi.zhaoboy.com/song/url?id=xxx,id为必选参数
       },
       success: res => {
-        console.log('歌曲url:',res)
+        // console.log('歌曲音频url:',res)
         if (res.data.data[0].url === null ) {  //如果是MV 电台 广告 之类的就提示播放出错，并返回首页
-          console.log('播放出错')
+          // console.log('播放出错')
           wx.showModal({
-            content: '播放出错',
+            content: '服务器开了点小差~~',
             cancelColor:'#DE655C',
             confirmColor: '#DE655C',
             showCancel:false,
@@ -53,11 +53,11 @@ Page({
         ids: audioId    //必选参数ids
       },
       success: res => {
-        console.log('歌曲详情', res);
+        // console.log('歌曲详情', res);
         if(res.data.songs.length === 0){
           // console.log('无法获取到资源')
           wx.showModal({
-            content: '播放出错',
+            content: '服务器开了点小差~~',
             cancelColor:'#DE655C',
             confirmColor: '#DE655C',
             showCancel:false,
@@ -94,7 +94,7 @@ Page({
 // 播放和暂停
   handleToggleBGAudio() {
     const bgAudioManage = app.globalData.bgAudioManage;
-    const { isPlay } = this.data;
+    const {isPlay} = this.data;
     if (isPlay) {
       bgAudioManage.pause();
     } else {
@@ -103,6 +103,7 @@ Page({
     this.setData({
       isPlay: !isPlay
     })
+    console.log(this.data.isPlay)
   },
   
 })

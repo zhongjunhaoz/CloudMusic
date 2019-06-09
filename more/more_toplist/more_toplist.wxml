@@ -1,10 +1,21 @@
-<!--more/more_toplist/more_toplist.wxml-->
-    <view class='songsheet_items_allbox'>
-      <view class='songsheet_items_box'>
-        <view wx:for="{{toplists}}" wx:key="" class='songsheet_item_box'>
-          <image src='{{item.coverImgUrl}}' class="songsheet_container_image"></image>
-          <text class='songsheet_container_text'>{{item.name}}</text>
-          <text class='newsong_artists'>{{item.updateFrequency}}</text>
-        </view>
-      </view>
+<!-- more/more_toplist/more_toplist.wxml -->
+<view class='songsheet_items_allbox'>
+  <view class='songsheet_items_box'>
+    <view wx:key="" class='songsheet_item_box' bindtap='go_toplist0'>
+      <image src='{{toplists0.coverImgUrl}}' class="songsheet_container_image"></image>
+      <text class='songsheet_container_text'>{{toplists0.name}}</text>
     </view>
+    <view wx:key="" class='songsheet_item_box' bindtap='go_toplist1'>
+      <image src='{{toplists1.coverImgUrl}}' class="songsheet_container_image"></image>
+      <text class='songsheet_container_text'>{{toplists1.name}}</text>
+    </view>
+    <view wx:key="" class='songsheet_item_box' bindtap='go_toplist2'>
+      <image src='{{toplists2.coverImgUrl}}' class="songsheet_container_image"></image>
+      <text class='songsheet_container_text'>{{toplists2.name}}</text>
+    </view>
+    <view wx:key="" class='songsheet_item_box' bindtap='go_toplist3'>
+      <image src='{{toplists3.coverImgUrl}}' class="songsheet_container_image"></image>
+      <text class='songsheet_container_text'>{{toplists3.name}}</text>
+    </view>
+  </view>
+</view>

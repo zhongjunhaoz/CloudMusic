@@ -16,7 +16,14 @@
     "more/more_djlist/more_djlist",
     "more/more_pay/more_pay",
     "more/more_songer/more_songer",
-    "play/play"
+    "play/play",
+    "play/play_mv",
+    "more/more_sheet/moremore_sheet",
+    "more/more_songer/moremore_songer",
+    "more/toplist0/toplist0",
+    "more/toplist1/toplist1",
+    "more/toplist2/toplist2",
+    "more/toplist3/toplist3"
   ],
   "window": {
     "navigationBarBackgroundColor": "#DC4238",
