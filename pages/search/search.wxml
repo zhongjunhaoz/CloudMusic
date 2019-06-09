@@ -25,7 +25,7 @@
     <view class="title">热门搜索</view>
     <view class='hot_key_box'>
     <view wx:for="{{hotsongs}}" wx:key="">
-    <view class='hot_keys_box_item'>{{item.first}}</view>
+    <view class='hot_keys_box_item' data-value='{{item.first}}' bindtap='fill_value'>{{item.first}}</view>
     </view>
     </view>
   </view>
@@ -35,20 +35,20 @@
     <text class="title history">搜索历史</text>
   <icon type='clear' bindtap="clearHistory" class="title record" color="#DE655C" ></icon>
   <view class="hot_key_box">
-    <text class="hot_keys_box_item" wx:for="{{history}}" wx:key="" data-index="{{index}}" bindtap="routeSearchResPage">{{item}}</text>
+    <text class="hot_keys_box_item" wx:for="{{history}}" wx:key="" data-value='{{item}}' data-index="{{index}}" bindtap="fill_value">{{item}}</text>
   </view>
   </view>
   
 <!-- 搜索建议 -->
   <view class="{{showsongresult?'search_suggest':'header_view_hide'}}">
-  <text wx:for="{{searchsuggest}}" wx:key="" class='search_result'>{{item.keyword}}</text>
+  <text wx:for="{{searchsuggest}}" wx:key="" class='search_result' data-value='{{item.keyword}}' bindtap='fill_value' >{{item.keyword}}</text>
   </view>
 
 
   <!-- 搜索结果 -->
   <view class='search_result_songs'>
 
-  <view wx:for="{{searchresult}}" wx:key="" class='search_result_song_item'>
+  <view wx:for="{{searchresult}}" wx:key="" class='search_result_song_item' data-id="{{item.id}}" bindtap='handlePlayAudio'>
   <view class='search_result_song_song_name'>{{item.name}}</view>
   <view class='search_result_song_song_art-album'>{{item.artists[0].name}} - {{item.album.name}}</view>
   </view>

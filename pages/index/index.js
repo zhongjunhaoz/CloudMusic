@@ -66,6 +66,9 @@ Page({
   },
 
   onLoad: function() {
+    // wx.showLoading({
+    //   title: '加载中',
+    // });
     this.getBanner();
     this.getsongsheet();
     this.getNewSong();

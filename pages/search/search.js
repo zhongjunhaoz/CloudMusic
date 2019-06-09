@@ -9,7 +9,8 @@ Page({
     searchsuggest:[], //搜索建议
     showView: true,//组件的显示与隐藏
     showsongresult:true,
-    searchresult:[]//搜索结果
+    searchresult:[],//搜索结果
+    searchKey:[]
   }, 
 
   onLoad() {
@@ -43,7 +44,7 @@ Page({
   // 实现点击输入框的×把输入的内容清空
   clearInput:function(res){
     this.setData({
-      'inputValue': ''
+      inputValue: ''
     })
   },
   
@@ -56,13 +57,14 @@ Page({
 
  //获取input文本并且实时搜索,动态隐藏组件
   getsearchKey:function(e){
+    console.log(e.detail.value) //打印出输入框的值
     let that = this;
-    if(e.detail.cursor != that.data.cursor){
+    if(e.detail.cursor != that.data.cursor){ //实时获取输入框的值
       that.setData({
         searchKey: e.detail.value
       })
     }
-    if(e.value!=""){
+    if(e.value!=""){ //组件的显示与隐藏
       that.setData({
         showView: false
       })
@@ -71,8 +73,10 @@ Page({
         showView: ""
       })
     }
-    that.searchSuggest();
-    
+    if(e.detail.value!=""){ //解决 如果输入框的值为空时，传值给搜索建议，会报错的bug
+      that.searchSuggest();
+    }
+      
   },
 
   // 清空page对象data的history数组 重置缓存为[]
@@ -96,12 +100,13 @@ Page({
 
   // input失去焦点函数
   routeSearchResPage: function(e) {
+    console.log(e.detail.value)
     //对历史记录的点击事件 已忽略
-    let _this = this;
-    let _searchKey = this.data.searchKey;
-    if (!this.data.searchKey) {
-      return
-    }
+    // let _this = this;
+    // let _searchKey = this.data.searchKey;
+    // if (!this.data.searchKey) {
+    //   return
+    // }
     let history = wx.getStorageSync("history") || [];
     history.push(this.data.searchKey)
     wx.setStorageSync("history", history);
@@ -116,6 +121,7 @@ Page({
   
   // 搜索结果
   searchResult(){
+    console.log(this.data.searchKey)
     API.searchResult({ keywords: this.data.searchKey, type: 1, limit: 100, offset:2 }).then(res => {
       if (res.code === 200) {
         this.setData({
@@ -132,6 +138,27 @@ Page({
       showsongresult: false
     })
     that.searchResult();
+  },
+
+  handlePlayAudio: function (event) { //event 对象，自带，点击事件后触发，event有type,target，timeStamp，currentTarget属性
+    const audioId = event.currentTarget.dataset.id; //获取到event里面的歌曲id赋值给audioId
+    wx.navigateTo({                                 //获取到id带着完整url后跳转到play页面
+      url: `../../play/play?id=${audioId}`
+    })
+  },
+
+// 点击热门搜索值或搜索历史，填入搜索框
+  fill_value:function(e){
+    let that = this;
+    console.log(history)
+    // console.log(e.currentTarget.dataset.value)
+    that.setData({
+      searchKey: e.currentTarget.dataset.value,//点击吧=把值给searchKey,让他去搜索
+      inputValue: e.currentTarget.dataset.value,//在输入框显示内容
+      showView:false,//给false值，隐藏 热搜和历史 界面
+      showsongresult: false, //给false值，隐藏搜索建议页面
+    })
+    that.searchResult(); //执行搜索功能
   }
 
 
