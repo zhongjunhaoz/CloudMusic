@@ -2,10 +2,13 @@
 const API = require('../../API/api');
 const app = getApp();
 const change = require('../../utils/util');
+// var mtabW;
 
 Page({
 
   data: {
+    slideOffset: 80,
+    // tabW: 0,
     banner: [], //轮播
     indicatorDots: true,
     indicatorcolor: '#ffffff',
@@ -66,9 +69,14 @@ Page({
   },
 
   onLoad: function() {
-    // wx.showLoading({
-    //   title: '加载中',
-    // });
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    });
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 3000)
+   
     this.getBanner();
     this.getsongsheet();
     this.getNewSong();
@@ -78,6 +86,16 @@ Page({
     this.getRecommendType();
     this.getRecommendMV();
     this.getNewEst();
+    // wx.getSystemInfo({
+      
+    //   success: function (res) {
+    //     console.log(res.windowWidth)
+    //     mtabW = res.windowWidth / 2; //设置tab的宽度
+    //     that.setData({
+    //       tabW: mtabW
+    //     })
+    //   }
+    // });
   },
 
   getBanner: function() {
@@ -123,16 +141,6 @@ Page({
       })
     })
   },
-
-  // getTopComments: function () {
-  //   API.getTopComments({ id: 186016,type:0}).then(res => {
-  //     if (res.code === 200) {
-  //       this.setData({
-  //         topcomments: res.hotComments,
-  //       })
-  //     }
-  //   })
-  // },
 
   getProgramRecommend: function() {
     API.getProgramRecommend({}).then(res => {
@@ -382,16 +390,20 @@ Page({
       url: '../../more/more_mv/more_mv',
     })
   },
-  // 换swiper
-  changeline: function(e) {
-    let that = this;
-    if (e.detail.current) {
-      that.setData({
-        Changeline: false
+
+  // swiper的滑动
+
+  changeline:function(e){
+    console.log(e.detail.current)
+    var current = e.detail.current; //获取swiper的current值
+    if(e.detail.current === 0){
+      this.setData({
+        slideOffset: 80
       })
-    } else {
-      that.setData({
-        Changeline: true
+    }
+    if(e.detail.current === 1){
+      this.setData({
+        slideOffset: 268
       })
     }
   },

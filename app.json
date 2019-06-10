@@ -32,8 +32,9 @@
     "backgroundColor": "#C62F2F",
     "backgroundTextStyle": "light",
     "onReachBottomDistance": 50,
-    "enablePullDownRefresh": false,
+    "enablePullDownRefresh": true,
     "pageOrientation": "auto"
+    
   },
   "tabBar": {
     "custom": true,

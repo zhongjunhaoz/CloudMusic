@@ -14,6 +14,12 @@ Page({
   }, 
 
   onLoad() {
+    wx.showLoading({
+      title: '加载中',
+    });
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 1000)
     this.gethotsongs();//加载页面完成调用gethotsongs方法
     
   },

@@ -13,6 +13,12 @@ Page({
 
  
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    });
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 1000)
     this.getTopList();
   },
 

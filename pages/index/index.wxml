@@ -24,9 +24,9 @@
 <view class='swiper_header'>
   <view class='swiper_header_first'>个性推荐</view>
   <view class='swiper_header_second'>主播电台</view>
-  <view class="{{Changeline?'swiper_header_line':'swiper_header_line_after'}}"></view>
+  <view class="weui-navbar-slider" style="transform:translateX({{slideOffset}}px);"></view>
 </view>
-<swiper class='Allswipew' bindchange="changeline">
+<swiper class='Allswipew' bindchange="changeline" current="{{activeIndex}}">
   <!-- 个性推荐swiper页面 -->
   <swiper-item class="comment">
     <block>

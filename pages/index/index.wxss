@@ -221,3 +221,10 @@ padding-bottom: 10rpx
   position: absolute;
   right: 40rpx;
 }
+.weui-navbar-slider{
+  width:28px;
+  height: 5px;
+  background: #ffffff;
+  border-radius:10rpx;
+  transition: transform .5s;
+ }
