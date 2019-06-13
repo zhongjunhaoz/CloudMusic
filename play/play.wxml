@@ -1,22 +1,30 @@
+<image src="{{song.al.picUrl}}" class="background_img" ></image>
+
+<!-- <view class="head">
+ 
+</view> -->
 
 <view class="body">
-  <image src="{{song.al.picUrl}}" class="background_img" ></image>
+ <!-- 歌名歌手 -->
   <view class="sing-brief">
-    <view class="sing-name">
-      {{song.name}}
-    </view>
+    <view class="sing-name">{{song.name}}</view>
     <view class="singer-name">
-      <text wx:for="{{song.ar}}" wx:key="{{index}}" class="singer-name-text">
-        {{item.name}} 
-      </text>
+      <text wx:for="{{song.ar}}" wx:key="{{index}}" class="singer-name-text">{{item.name}}</text>
     </view>
   </view>
-  <view class="sing-show">
-    <image src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}"/>
+  <!-- 封面 -->
+  <!-- 一开始onload时,showLyric=true, 显示为转动的图标，点击图标，切换为歌词-->
+  <view class="sing-show" bindtap="showLyric">
+    <image src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}" hidden="{{!showLyric}}"/>
+    <text hidden="{{showLyric}}" class="songLyric">纯音乐，请欣赏</text>
   </view>
+  <!-- 暂停播放图标 -->
   <view class="play_suspend">
-    <!-- <button type="primary" bindtap="handleToggleBGAudio">{{isPlay ? '暂停' : '播放'}}</button>   -->
-    <image bindtap="handleToggleBGAudio" src="../images/suspend.png" class=" {{isplay ? 'hide' : 'img_play_suspend'}}" />  <!-- 暂停图标-->
-    <image bindtap="handleToggleBGAudio" src="../images/play.png" class=" {{isplay ? 'img_play_suspend' : 'hide'}}" /> <!--播放图标-->
+    <image bindtap="handleToggleBGAudio" src="../images/suspend.png" hidden="{{!isPlay}}" class="{{'img_play_suspend'}}" />  <!-- 暂停图标-->
+    <image bindtap="handleToggleBGAudio" src="../images/play.png" hidden="{{isPlay}}" class="{{'img_play_suspend'}}" /> <!--播放图标-->
   </view>
 </view>
+
+<!-- <view class="songLyric">
+  <text>纯音乐，请欣赏</text>
+</view> -->

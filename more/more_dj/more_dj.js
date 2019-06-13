@@ -13,14 +13,12 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
     this.getDjRadios();
   },
 
   getDjRadios: function () {
     API.getDjRadios({}).then(res => {
+      wx.hideLoading()
       this.setData({
         dj: res.djRadios
       })

@@ -12,9 +12,6 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
     const sheetId = options.id;
 
     wx.request({
@@ -23,6 +20,7 @@ Page({
         id: sheetId    
       },
       success: res => {
+        wx.hideLoading()
         console.log(res.data.hotSongs)
         this.setData({
           songList: res.data.hotSongs

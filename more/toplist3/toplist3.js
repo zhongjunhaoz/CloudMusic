@@ -11,9 +11,6 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
     this.getTopList();
   },
 
@@ -22,6 +19,7 @@ Page({
     API.getTopList({
       idx: 3,
     }).then(res => {
+      wx.hideLoading()
       console.log(res.playlist)
       this.setData({
         toplists: res.playlist.tracks

@@ -226,5 +226,5 @@ padding-bottom: 10rpx
   height: 5px;
   background: #ffffff;
   border-radius:10rpx;
-  transition: transform .5s;
+  transition: transform .6s;
  }

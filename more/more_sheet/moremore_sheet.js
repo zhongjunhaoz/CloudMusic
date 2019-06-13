@@ -11,9 +11,6 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
     const sheetId = options.id;
     // console.log(sheetId)
     wx.request({
@@ -22,6 +19,7 @@ Page({
         id: sheetId    //http://neteasecloudmusicapi.zhaoboy.com/song/url?id=xxx,id为必选参数
       },
       success: res => {
+        wx.hideLoading()
         // console.log(res.data.playlist.tracks)
         this.setData({
           songList: res.data.playlist.tracks

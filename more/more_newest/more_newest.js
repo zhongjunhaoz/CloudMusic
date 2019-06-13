@@ -13,14 +13,12 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
     this.getNewEst();
   },
 
   getNewEst: function () {
     API.getNewEst({}).then(res => {
+      wx.hideLoading()
       if (res.code === 200) {
         this.setData({
           newest: res.albums

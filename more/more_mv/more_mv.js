@@ -13,14 +13,12 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
     this.getNewMv()
   },
 
   getNewMv: function () {
     API.getNewMv({}).then(res => {
+      wx.hideLoading()
       if (res.code === 200) {
         this.setData({
           mv: res.data

@@ -12,14 +12,12 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
     this.getDjList();
   },
 
   getDjList: function () {
     API.getDjList({}).then(res => {
+      wx.hideLoading()
       this.setData({
         djlists: res.categories
       })

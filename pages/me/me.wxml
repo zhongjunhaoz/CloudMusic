@@ -1,2 +1,10 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<!-- <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class="sign">登录</button> -->
+<view class="head">
+    <image src="{{img}}" class="background_img" ></image>
+    <view class="image_box">
+        <image src="{{img}}" class="image"></image>
+    </view>
+    <view class="nickName_box">
+        <text class="nickName">{{nickName}}</text>
+    </view>
+</view>

@@ -17,9 +17,6 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
     this.gethotsongs();//加载页面完成调用gethotsongs方法
     
   },
@@ -27,6 +24,7 @@ Page({
   // 从接口到获取到数据导入到hotsongs
   gethotsongs() {
     API.gethotsongs({ type: 'new' }).then(res => {
+      wx.hideLoading()
       // 大厂API接口的维定 code 0 没有问题
       if (res.code === 200) {  //严谨
         this.setData({

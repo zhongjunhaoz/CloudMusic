@@ -2,13 +2,12 @@
 const API = require('../../API/api');
 const app = getApp();
 const change = require('../../utils/util');
-// var mtabW;
-
+let  half;
+let quarter;
 Page({
 
   data: {
-    slideOffset: 80,
-    // tabW: 0,
+    slideOffset: 0,
     banner: [], //轮播
     indicatorDots: true,
     indicatorcolor: '#ffffff',
@@ -73,29 +72,25 @@ Page({
     wx.showLoading({
       title: '加载中',
     });
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 3000)
-   
     this.getBanner();
     this.getsongsheet();
     this.getNewSong();
     this.getDjRadios();
-    // this.getTopComments();
     this.getProgramRecommend();
     this.getRecommendType();
     this.getRecommendMV();
     this.getNewEst();
-    // wx.getSystemInfo({
-      
-    //   success: function (res) {
-    //     console.log(res.windowWidth)
-    //     mtabW = res.windowWidth / 2; //设置tab的宽度
-    //     that.setData({
-    //       tabW: mtabW
-    //     })
-    //   }
-    // });
+    wx.getSystemInfo({
+      success: function (res) {
+        // console.log(res.windowWidth)
+        // console.log(res.windowWidth / 2 / 2)
+        half = res.windowWidth / 2 ;
+        quarter = res.windowWidth / 2 / 2;
+        that.setData({
+          slideOffset: quarter - 14 //onLoad的时候让 quarter - 14 给slideOffset，即一开始就让他在个性推荐的下面，否则onLoad的时候一开始在0的位置
+        })
+      }
+    });
   },
 
   getBanner: function() {
@@ -114,6 +109,7 @@ Page({
     API.getsongsheet({
       order: 'hot'
     }).then(res => {
+      wx.hideLoading()
       if (res.code === 200) {
         this.setData({
           songsheet: res.playlists,
@@ -392,18 +388,24 @@ Page({
   },
 
   // swiper的滑动
-
+// 第二种方法是直接把slideOffset赋死值，但不兼容
+// 第三种是选择器 class="{{Changeline?'swiper_header_line':'swiper_header_line_after'}}" if current为1则什么什么，if 为2 ，则什么什么。
   changeline:function(e){
     console.log(e.detail.current)
-    var current = e.detail.current; //获取swiper的current值
+    let current = e.detail.current; //获取swiper的current值
     if(e.detail.current === 0){
       this.setData({
-        slideOffset: 80
+        slideOffset: quarter - 14
       })
     }
     if(e.detail.current === 1){
       this.setData({
-        slideOffset: 268
+        slideOffset: (quarter - 14) + half
+      })
+    }
+    if(e.detail.current === null){
+      this.setData({
+        slideOffset: quarter - 14
       })
     }
   },

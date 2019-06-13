@@ -11,6 +11,7 @@ const request = (url, data) => {
       },
       success(request) {
         resolve(request.data)
+        
       },
       fail(error) {
         reject(error)

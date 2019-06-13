@@ -72,6 +72,7 @@ page, .body {
   width: 500rpx;
   height: 500rpx;
   border-radius: 50%;
+  
 }
 .coverImg {
   width: 400rpx;
@@ -79,6 +80,8 @@ page, .body {
   border-radius: 50%;
   position:absolute;
   top:26%;
+  animation: rotate 15s linear infinite ;
+  animation-play-state: paused;
 }
 .play_suspend{
   height:15%;
@@ -92,6 +95,7 @@ page, .body {
 }
 .coverImg.play {
   animation: rotate 15s linear infinite ;
+  animation-fill-mode: forwards;
 }
 .hide{
   display: none;
@@ -103,4 +107,8 @@ page, .body {
   100%{
     transform: rotate(360deg);
   }
+}
+.songLyric{
+  color: #ffffff;
+  font-size: 14px;
 }
