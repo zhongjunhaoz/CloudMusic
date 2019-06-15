@@ -1,12 +1,10 @@
 <image src="{{song.al.picUrl}}" class="background_img" ></image>
 
-<!-- <view class="head">
- 
-</view> -->
 
 <view class="body">
  <!-- 歌名歌手 -->
   <view class="sing-brief">
+   <!-- <view class="back_box" bindtap='go_index'> <image src="../images/back.png" class="back"></image></view> -->
     <view class="sing-name">{{song.name}}</view>
     <view class="singer-name">
       <text wx:for="{{song.ar}}" wx:key="{{index}}" class="singer-name-text">{{item.name}}</text>
@@ -14,9 +12,9 @@
   </view>
   <!-- 封面 -->
   <!-- 一开始onload时,showLyric=true, 显示为转动的图标，点击图标，切换为歌词-->
-  <view class="sing-show" bindtap="showLyric">
+  <view class="sing-show" bindtap="showLyric" >
     <image src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}" hidden="{{!showLyric}}"/>
-    <text hidden="{{showLyric}}" class="songLyric">纯音乐，请欣赏</text>
+    <text  hidden="{{showLyric}}" class="songLyric">纯音乐，请欣赏</text>
   </view>
   <!-- 暂停播放图标 -->
   <view class="play_suspend">
@@ -25,6 +23,3 @@
   </view>
 </view>
 
-<!-- <view class="songLyric">
-  <text>纯音乐，请欣赏</text>
-</view> -->

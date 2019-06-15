@@ -1,2 +1,30 @@
-<!--pages/love/love.wxml-->
-<text>pages/love/love.wxml</text>
+<image src="{{song.al.picUrl}}" class="background_img" ></image>
+
+<!-- <view class="head">
+ 
+</view> -->
+
+<view class="body">
+ <!-- 歌名歌手 -->
+  <view class="sing-brief">
+    <view class="sing-name">{{song.name}}</view>
+    <view class="singer-name">
+      <text wx:for="{{song.ar}}" wx:key="{{index}}" class="singer-name-text">{{item.name}}</text>
+    </view>
+  </view>
+  <!-- 封面 -->
+  <!-- 一开始onload时,showLyric=true, 显示为转动的图标，点击图标，切换为歌词-->
+  <view class="sing-show" bindtap="showLyric">
+    <image src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}" hidden="{{!showLyric}}"/>
+    <text hidden="{{showLyric}}" class="songLyric">纯音乐，请欣赏</text>
+  </view>
+  <!-- 暂停播放图标 -->
+  <view class="play_suspend">
+    <image bindtap="handleToggleBGAudio" src="../../images/suspend.png" hidden="{{!isPlay}}" class="{{'img_play_suspend'}}" />  <!-- 暂停图标-->
+    <image bindtap="handleToggleBGAudio" src="../../images/play.png" hidden="{{isPlay}}" class="{{'img_play_suspend'}}" /> <!--播放图标-->
+  </view>
+</view>
+
+<!-- <view class="songLyric">
+  <text>纯音乐，请欣赏</text>
+</view> -->

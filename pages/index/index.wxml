@@ -66,20 +66,7 @@
         <text class='comment_text'>榜单排行</text>
       </view>
     </view>
-    <!-- 精选歌单 -->
-    <view class='songsheet_items_allbox'>
-      <text class='songsheet_container_title' bindtap="go_songsheet">精选歌单</text>
-      <view class='title_leader_box' bindtap="go_songsheet">
-        <image src='/images/dayuhao.png' class='title_leader'></image>
-      </view>
-      <view class='songsheet_items_box'>
-        <view wx:for="{{songsheet_index}}" wx:key="" class='songsheet_item_box' data-id="{{item.id}}" bindtap='handleSheet'>
-          <image src='{{item.coverImgUrl}}' class="songsheet_container_image"></image>
-          <text class='songsheet_container_text'>{{item.name}}</text>
-        </view>
-      </view>
-    </view>
-    <!-- 最新音乐 -->
+       <!-- 最新音乐 -->
     <view class='songsheet_items_allbox newsong_allbox'>
       <text class='songsheet_container_title' bindtap="go_newsong">最新音乐</text>
       <view class='title_leader_box' bindtap="go_newsong">
@@ -93,19 +80,21 @@
         </view>
       </view>
     </view>
-    <!-- 精选电台 -->
-    <view class='songsheet_items_allbox dj_allbox'>
-      <text class='songsheet_container_title' bindtap="go_dj">精选电台</text>
-      <view class='title_leader_box' bindtap="go_dj">
+    <!-- 精选歌单 -->
+    <view class='songsheet_items_allbox'>
+      <text class='songsheet_container_title' bindtap="go_songsheet">精选歌单</text>
+      <view class='title_leader_box' bindtap="go_songsheet">
         <image src='/images/dayuhao.png' class='title_leader'></image>
       </view>
       <view class='songsheet_items_box'>
-        <view wx:for="{{dj_index}}" wx:key="" class='songsheet_item_box'  bindtap='handlePlayDj'>
-          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+        <view wx:for="{{songsheet_index}}" wx:key="" class='songsheet_item_box' data-id="{{item.id}}" bindtap='handleSheet'>
+          <image src='{{item.coverImgUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text'>{{item.name}}</text>
         </view>
       </view>
     </view>
+ 
+
     <!-- 推荐MV -->
     <view class='songsheet_items_allbox newsong_allbox'>
       <text class='songsheet_container_title' bindtap="go_mv">推荐MV</text>
@@ -117,6 +106,19 @@
           <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
           <text class='newsong_artists'>{{item.artistName}}</text>
+        </view>
+      </view>
+    </view>
+        <!-- 精选电台 -->
+    <view class='songsheet_items_allbox dj_allbox'>
+      <text class='songsheet_container_title' bindtap="go_dj">精选电台</text>
+      <view class='title_leader_box' bindtap="go_dj">
+        <image src='/images/dayuhao.png' class='title_leader'></image>
+      </view>
+      <view class='songsheet_items_box'>
+        <view wx:for="{{dj_index}}" wx:key="" class='songsheet_item_box'  bindtap='handlePlayDj'>
+          <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+          <text class='songsheet_container_text'>{{item.name}}</text>
         </view>
       </view>
     </view>

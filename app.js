@@ -35,8 +35,12 @@ App({
         }
       }
     })
+
+    
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    songId:[],
+    songImg:[],
   }
 })

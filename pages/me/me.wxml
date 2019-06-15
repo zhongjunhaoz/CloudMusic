@@ -1,4 +1,4 @@
-<!-- <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class="sign">登录</button> -->
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class="{{hidden ? 'sign' : 'hidden_btn'}}">登录</button>
 <view class="head">
     <image src="{{img}}" class="background_img" ></image>
     <view class="image_box">

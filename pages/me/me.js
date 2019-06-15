@@ -1,20 +1,29 @@
 // pages/me/me.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     img:[],
-    nickName:[]
+    nickName:[],
+    hidden:true,
   },
-  
+
+
+  onLaunch:function(){
+     this.setData({
+      hidden:true
+    })
+  },
   onGotUserInfo: function (e) {
+    this.setData({
+      hidden:false
+    })
     console.log(e.detail.errMsg)
     console.log(e.detail.userInfo)
     console.log(e.detail.rawData)
-  },
-  onLoad: function (options) {
+
+    // this.setData({
+    //   hidden:true
+    // })
       let that = this;
         // 获取用户信息
         wx.login({
@@ -31,5 +40,6 @@ Page({
             });
           }
         });
-  },
+  }
+
 })

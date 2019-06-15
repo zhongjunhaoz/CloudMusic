@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/me/me",
     "pages/index/index",
     "pages/logs/logs",
     "pages/love/love",
+    "pages/me/me",
     "pages/search/search",
     "custom-tab-bar/index",
     "more/more_sheet/more_sheet",

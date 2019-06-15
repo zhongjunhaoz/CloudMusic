@@ -1,9 +1,35 @@
-<!--custom-tab-bar/index.wxml-->
+<!-- 自定义tabbar页面 -->
 <cover-view class="tab-bar">
    <cover-view class="tab-bar-border"></cover-view><!--tabBal边框样式  -->
 
-  <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
-    <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
-    <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
+  <!-- <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <!-- <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image> -->
+    <!-- <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view> -->
+    <!-- <cover-image src='../image/music.png'></cover-image>
+    <cover-view style=''>乐库</cover-view> 
+  </cover-view> -->
+
+
+<!-- 乐库tabbar -->
+  <cover-view class='tab-bar-item' >
+    <cover-image src='../images/music.png' hidden='{{isShow_index}}' bindtap='switchTab_index'></cover-image>
+    <cover-image src='../images/selected-music.png' hidden='{{!isShow_index}}' bindtap='switchTab_index'></cover-image>
+    <cover-view style="color:{{isShow_index ? selectedColor : color}}">乐库</cover-view>
   </cover-view>
+
+<!-- 播放tabbar -->
+    <cover-view class='tab-bar-item' bindtap='switchTab_playing'>
+    <cover-image src='../images/selected-playing.png' hidden='{{isShow_playing}}'></cover-image>
+    <cover-image src='../images/playing.png' hidden='{{!isShow_playing}}'></cover-image>
+    <cover-view></cover-view>
+  </cover-view>
+
+<!-- 我的tabbar -->
+    <cover-view class='tab-bar-item' bindtap='switchTab_me'>
+    <cover-image src='../images/me.png' hidden='{{isShow_me}}'></cover-image>
+    <cover-image src='../images/selected-me.png' hidden='{{!isShow_me}}'></cover-image>
+    <cover-view style="color:{{isShow_me ? selectedColor : color}}">我的</cover-view>
+  </cover-view>
+
+
 </cover-view>
