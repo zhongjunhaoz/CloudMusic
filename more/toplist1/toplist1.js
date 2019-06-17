@@ -19,6 +19,12 @@ Page({
     API.getTopList({
       idx: 1,
     }).then(res => {
+      const waitForPlay = new Array;
+      for (let i = 0; i <= res.playlist.trackIds.length - 1; i++) { //循环打印出其id
+        waitForPlay.push(res.playlist.trackIds[i].id) //循环push ID 到waitForPlay数组
+        app.globalData.waitForPlaying = waitForPlay  //让waitForPlay数组给全局数组
+        // console.log(app.globalData.waitForPlaying)
+      }
       wx.hideLoading()
       console.log(res.playlist)
       this.setData({

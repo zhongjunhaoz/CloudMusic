@@ -95,7 +95,7 @@ Page({
           that.setData({
             history: []
           })
-          wx.setStorageSync("history", [])
+          wx.setStorageSync("history", []) //把空数组给history,即清空历史记录
         } else if (res.cancel) {
         }
       }
@@ -116,7 +116,7 @@ Page({
     wx.setStorageSync("history", history);
   },
 
-//每次显示钩子函数都去读一次本地storage
+//每次显示变动就去获取缓存，给history，并for出来。
   onShow: function () {
     this.setData({
       history: wx.getStorageSync("history") || []

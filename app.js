@@ -42,5 +42,6 @@ App({
     userInfo: null,
     songId:[],
     songImg:[],
+    waitForPlaying:[]
   }
 })

@@ -8,7 +8,8 @@ Page({
     song:[],
     innerAudioContext: {},
     show:true,
-    showLyric:true
+    showLyric:true,
+    songid:[]
   },
 
  
@@ -16,16 +17,20 @@ Page({
    
   onLoad: function (options) {
     console.log(options);
-    const audioId = options.id; // onLoad()后获取到歌曲视频之类的id
-    // app.globalData.songImg=song.al.picUrl;
-    // console.log(app.globalData.songImg)
-    app.globalData.songId=audioId;  //让每一个要播放的歌曲ID给全局变量的songId
-    console.log('把',app.globalData.songId,'传入全局变量中')
+    const audioid = options.id; // onLoad()后获取到歌曲视频之类的id
+    this.play(audioid); //把从wxml获取到的值传给play()
+  },
+
+  play: function (audioid){
+    const audioId = audioid;
+    // console.log(that.data.songid)
+    app.globalData.songId = audioId;  //让每一个要播放的歌曲ID给全局变量的songId
+    console.log('把', app.globalData.songId, '传入全局变量中')
 
     const innerAudioContext = wx.createInnerAudioContext();
     this.setData({
       innerAudioContext,
-      isPlay:true
+      isPlay: true
       // app.globalData.songId:audioId
     })
 
@@ -36,28 +41,28 @@ Page({
     wx.request({
       url: API_BASE_URL + '/song/url',
       data: {
-        id: audioId    
+        id: audioId
       },
       success: res => {
         // console.log('歌曲音频url:',res)
-        if (res.data.data[0].url === null ) {  //如果是MV 电台 广告 之类的就提示播放出错，并返回首页
+        if (res.data.data[0].url === null) {  //如果是MV 电台 广告 之类的就提示播放出错，并返回首页
           // console.log('播放出错')
           wx.showModal({
             content: '服务器开了点小差~~',
-            cancelColor:'#DE655C',
+            cancelColor: '#DE655C',
             confirmColor: '#DE655C',
-            showCancel:false,
-            confirmText:'返回',
-            complete(){
+            showCancel: false,
+            confirmText: '返回',
+            complete() {
               wx.switchTab({
                 url: '/pages/index/index'
               })
             }
           })
         } else {
-          this.createBgAudio(res.data.data[0]); 
+          this.createBgAudio(res.data.data[0]);
           // this.frontAudio(res.data.data[0])
-          } 
+        }
       }
     })
 
@@ -70,21 +75,21 @@ Page({
       },
       success: res => {
         // console.log('歌曲详情', res);
-        if(res.data.songs.length === 0){
+        if (res.data.songs.length === 0) {
           // console.log('无法获取到资源')
           wx.showModal({
             content: '服务器开了点小差~~',
-            cancelColor:'#DE655C',
+            cancelColor: '#DE655C',
             confirmColor: '#DE655C',
-            showCancel:false,
-            confirmText:'返回',
-            complete(){
+            showCancel: false,
+            confirmText: '返回',
+            complete() {
               wx.switchTab({
                 url: '/pages/index/index'
               })
             }
           })
-        } else{
+        } else {
           this.setData({
             song: res.data.songs[0],  //获取到歌曲的详细内容，传给song
           })
@@ -94,35 +99,6 @@ Page({
     })
   },
 
-  // frontAudio(res) {
-  //   const innerAudioContext = this.data.innerAudioContext
-  //   innerAudioContext.autoplay = true;//自动播放
-  //   innerAudioContext.loop = true;//循环播放
-  //   innerAudioContext.src = res.url;//传URL
-  //   innerAudioContext.onPlay(() => {
-  //     // console.log('开始前台播放？')
-  //     this.setData({
-  //       isPlay: true
-  //     })
-  //   })
-  // },
-
-  // 暂停和播放
-  // handleFrontAudio(){
-  //   const innerAudioContext = this.data.innerAudioContext
-  //   let {isPlay} = this.data;
-  //   isPlay = !isPlay
-  //   if (isPlay === false) {
-  //     innerAudioContext.pause()
-  //   } else{
-  //     innerAudioContext.play()
-  //   }
-  //   this.setData({
-  //     isPlay: isPlay
-  //   })
-  //   // console.log(isPlay)
-  // },
-// // 设置后台音乐
   createBgAudio(res) {
     const bgAudioManage = wx.getBackgroundAudioManager(); //获取全局唯一的背景音频管理器。并把它给实例bgAudioManage
     app.globalData.bgAudioManage = bgAudioManage;         //把实例bgAudioManage(背景音频管理器) 给 全局
@@ -131,12 +107,13 @@ Page({
     // bgAudioManage.duration = 
     bgAudioManage.onPlay(res => {                         // 监听背景音频播放事件
       this.setData({
-        isPlay: true
+        isPlay: true,
       })
+      // wx.setStorageSync('songid', this.data.songid)
     });
-    bgAudioManage.onEnded( () =>{                  //监听背景音乐自然结束事件，结束后自动播放下一首。要注意的是，要传入url,再然后play(),才能成功。
-      bgAudioManage.src = res.url; 
-      bgAudioManage.play();
+    bgAudioManage.onEnded(() => {                  //监听背景音乐自然结束事件，结束后自动播放下一首。自然结束，调用go_lastSong()函数，即歌曲结束自动播放下一首歌
+      this.go_lastSong();
+
     })
   },
 
@@ -167,13 +144,33 @@ Page({
   },
 
   go_index:function(){
-    console.log(1)
+    // console.log(1)
     // wx.reLaunch({
     //   url:'../pages/index/index'
     // })
     wx.navigateBack({
       delta: 1
     })
+  },
+
+  go_lastSong:function(){ //目前只做了歌单的上一首
+    let that = this;
+    const lastSongId = app.globalData.waitForPlaying;
+    // console.log(lastSongId)
+    const songId = lastSongId[Math.floor(Math.random() * lastSongId.length)]; //随机选取lastSongId数组的一个元素
+    // console.log(songId)
+    
+    that.data.songid = songId;
+    this.play(songId)//传进play()方法中
+    app.globalData.songId=songId;
+    // console.log(that.data.songid);
+
+    // wx.getStorageSync({
+    //   key: 'songid',
+    //   success: function (res) {
+    //     console.log(res.data)
+    //   }
+    // })
   }
   
 })

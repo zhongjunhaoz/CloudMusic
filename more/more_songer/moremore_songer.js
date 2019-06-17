@@ -20,6 +20,12 @@ Page({
         id: sheetId    
       },
       success: res => {
+        const waitForPlay = new Array;
+        for (let i = 0; i <= res.data.hotSongs.length - 1; i++) { //循环打印出其id
+          waitForPlay.push(res.data.hotSongs[i].id) //循环push ID 到waitForPlay数组
+          app.globalData.waitForPlaying = waitForPlay  //让waitForPlay数组给全局数组
+          // console.log(app.globalData.waitForPlaying)
+        }
         wx.hideLoading()
         console.log(res.data.hotSongs)
         this.setData({

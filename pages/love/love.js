@@ -25,7 +25,8 @@ Page({
     song:[],
     innerAudioContext: {},
     show:true,
-    showLyric:true
+    showLyric:true,
+    songid: []
   },
 
  
@@ -103,34 +104,7 @@ Page({
     })
   },
 
-  // frontAudio(res) {
-  //   const innerAudioContext = this.data.innerAudioContext
-  //   innerAudioContext.autoplay = true;//自动播放
-  //   innerAudioContext.loop = true;//循环播放
-  //   innerAudioContext.src = res.url;//传URL
-  //   innerAudioContext.onPlay(() => {
-  //     // console.log('开始前台播放？')
-  //     this.setData({
-  //       isPlay: true
-  //     })
-  //   })
-  // },
 
-  // 暂停和播放
-  // handleFrontAudio(){
-  //   const innerAudioContext = this.data.innerAudioContext
-  //   let {isPlay} = this.data;
-  //   isPlay = !isPlay
-  //   if (isPlay === false) {
-  //     innerAudioContext.pause()
-  //   } else{
-  //     innerAudioContext.play()
-  //   }
-  //   this.setData({
-  //     isPlay: isPlay
-  //   })
-  //   // console.log(isPlay)
-  // },
 // // 设置后台音乐
   createBgAudio(res) {
     const bgAudioManage = wx.getBackgroundAudioManager(); //获取全局唯一的背景音频管理器。并把它给实例bgAudioManage
@@ -173,6 +147,19 @@ Page({
     this.setData({
       showLyric: !showLyric
     })
+  },
+
+  go_lastSong: function () { 
+    let that = this;
+    const lastSongId = app.globalData.waitForPlaying;
+    // console.log(lastSongId)
+    const songId = lastSongId[Math.floor(Math.random() * lastSongId.length)]; //随机选取lastSongId数组的一个元素
+    // console.log(songId)
+    app.globalData.songId = songId;
+    this.onShow();
+     
+    // this.play(songId)//传进play()方法中
+    // console.log(that.data.songid);
   }
   
 })

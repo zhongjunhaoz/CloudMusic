@@ -98,13 +98,21 @@ page, .body {
   animation-play-state: paused;
 }
 .play_suspend{
+  display: flex;
   height:15%;
   text-align:center;
   line-height:50px;
   box-sizing: border-box;
 }
+.icon_playing{
+  flex: 1;
+}
+.icon_play{
+  width:24%;
+  height:33%;
+}
 .img_play_suspend{
-  width: 10%;
+  width: 28%;
   height: 40%;
 }
 .coverImg.play {

@@ -18,8 +18,10 @@
   </view>
   <!-- 暂停播放图标 -->
   <view class="play_suspend">
-    <image bindtap="handleToggleBGAudio" src="../images/suspend.png" hidden="{{!isPlay}}" class="{{'img_play_suspend'}}" />  <!-- 暂停图标-->
-    <image bindtap="handleToggleBGAudio" src="../images/play.png" hidden="{{isPlay}}" class="{{'img_play_suspend'}}" /> <!--播放图标-->
+    <view class="icon_playing "><image src="../images/lastSong.png" class=" icon_play" bindtap="go_lastSong" /></view>
+    <view class="icon_playing"><image bindtap="handleToggleBGAudio" src="../images/suspend.png" hidden="{{!isPlay}}" class="{{'img_play_suspend'}}" />  <!-- 暂停图标-->
+    <image bindtap="handleToggleBGAudio" src="../images/play.png" hidden="{{isPlay}}" class="{{'img_play_suspend'}}" /></view> <!--播放图标-->
+    <view class="icon_playing "><image src="../images/nextSong.png" class=" icon_play" bindtap="go_lastSong" /></view>
   </view>
 </view>
 
