@@ -1,3 +1,5 @@
+@import "../search/search"; 
+
 .sign{
     position:absolute;
     top: 50%;
@@ -14,8 +16,8 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 100%;
-    height:22%;
+    width:300%;
+    height:80%;    
     filter: blur(15px);
     z-index: -1;
     transform: scale(1.5); /*和网易云音乐对比了一下，发现他们是也是放大1.5倍*/
@@ -45,4 +47,13 @@
 .nickName{
     color: #ffffff;
     font-size: 14px;
+}
+.head{
+    height: 32%;
+}
+.hot_keys_box_item{
+  color: #000000;
+}
+.title{
+  color: #000000;
 }

@@ -1,17 +1,23 @@
-// pages/me/me.js
+const app = getApp();
 Page({
 
   data: {
     img:[],
     nickName:[],
     hidden:true,
+    historyId:[]
   },
 
 
-  onLaunch:function(){
+  onShow:function(){
+    var history = wx.getStorageSync('historyId');
+    // console.log(history)
      this.setData({
-      hidden:true
+      hidden:true,
+      //  historyId: app.globalData.songName
+       historyId: history
     })
+    console.log(this.data.historyId)
   },
   onGotUserInfo: function (e) {
     this.setData({

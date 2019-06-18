@@ -1,5 +1,7 @@
 <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class="{{hidden ? 'sign' : 'hidden_btn'}}">登录</button>
-<view class="head">
+
+
+<view class="{{hidden ? 'hidden_btn' : 'head'}}">
     <image src="{{img}}" class="background_img" ></image>
     <view class="image_box">
         <image src="{{img}}" class="image"></image>
@@ -8,3 +10,13 @@
         <text class="nickName">{{nickName}}</text>
     </view>
 </view>
+
+<view class="{{hidden ? 'hidden_btn' : 'body'}}">
+  <view> <text class="title history">播放历史</text></view>
+  <view class="hot_key_box">
+    <view class="hot_keys_box_item" wx:for="{{historyId}}" wx:key="" >
+   {{item.songName}}
+    </view>
+  </view>
+</view>
+

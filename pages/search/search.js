@@ -105,12 +105,6 @@ Page({
   // input失去焦点函数
   routeSearchResPage: function(e) {
     console.log(e.detail.value)
-    //对历史记录的点击事件 已忽略
-    // let _this = this;
-    // let _searchKey = this.data.searchKey;
-    // if (!this.data.searchKey) {
-    //   return
-    // }
     let history = wx.getStorageSync("history") || [];
     history.push(this.data.searchKey)
     wx.setStorageSync("history", history);

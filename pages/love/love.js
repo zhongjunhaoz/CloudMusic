@@ -33,6 +33,21 @@ Page({
   // onLond,第一次进入则获取到index.js传来的歌曲id --> id传给wx.request的URL，获取到歌曲详情 -->
    
   onShow: function (options) {   //onShow监听页面显示
+    // if (res.code === 400 ) {  //如果是MV 电台 广告 之类的就提示播放出错，并返回首页
+    //   // console.log('播放出错')
+    //   wx.showModal({
+    //     content: '服务器开了点小差~~',
+    //     cancelColor:'#DE655C',
+    //     confirmColor: '#DE655C',
+    //     showCancel:false,
+    //     confirmText:'返回',
+    //     complete(){
+    //       wx.switchTab({
+    //         url: '/pages/index/index'
+    //       })
+    //     }
+    //   })
+    // }
     console.log('love刷新了否')
     const audioId = app.globalData.songId; //从全局变量中获取
     const innerAudioContext = wx.createInnerAudioContext()
@@ -64,7 +79,8 @@ Page({
               })
             }
           })
-        } else {
+        } 
+        else {
           this.createBgAudio(res.data.data[0]); 
           // this.frontAudio(res.data.data[0])
           } 
