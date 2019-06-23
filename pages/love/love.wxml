@@ -15,7 +15,9 @@
   <!-- 封面 -->
   <!-- 一开始onload时,showLyric=true, 显示为转动的图标，点击图标，切换为歌词-->
   <view class="sing-show" bindtap="showLyric">
+    <view class="moveCircle {{isPlay ? 'play' : ''}}" hidden="{{!showLyric}}">
     <image src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}" hidden="{{!showLyric}}"/>
+    </view>
     <text hidden="{{showLyric}}" class="songLyric">纯音乐，请欣赏</text>
   </view>
   <!-- 暂停播放图标 -->

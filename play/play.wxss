@@ -92,8 +92,10 @@ page, .body {
   width: 400rpx;
   height: 400rpx;
   border-radius: 50%;
-  position:absolute;
-  top:26%;
+  top:28%;
+  left: 23%;
+  position: absolute;
+  border: 3px solid #ffffff;
   animation: rotate 15s linear infinite ;
   animation-play-state: paused;
 }
@@ -119,6 +121,10 @@ page, .body {
   animation: rotate 15s linear infinite ;
   animation-fill-mode: forwards;
 }
+.moveCircle.play {
+  animation: moveCircle 2.5s linear infinite ;
+  animation-fill-mode: forwards;
+}
 .hide{
   display: none;
 }
@@ -134,3 +140,59 @@ page, .body {
   color: #ffffff;
   font-size: 14px;
 }
+/* .circle{
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  width:400rpx;
+  height:400rpx;
+  /* position:absolute; */
+  /* animation: moveCircle 2.5s linear infinite ; */
+  /* animation-play-state: paused; */
+/* } */ 
+.moveCircle{
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  width:400rpx;
+  height:400rpx;
+  animation: moveCircle 2.5s linear infinite ;
+  animation-play-state: paused;
+}
+/* .circle{
+  border-radius: 50%;
+  border: 1px solid red;
+  animation: moveCircle 5s  2s linear infinite ;/* 因为动画宽高会变化，所以会覆盖*/
+  /* animation-play-state: paused; */
+/* } */ 
+@keyframes moveCircle {
+  0%{
+    width: 400rpx;
+    height: 400rpx;
+    border: 1px solid rgba(255, 255, 255, 1)
+  }
+  30%{
+    width: 510rpx;
+    height: 510rpx;
+    border: 1px solid rgba(255, 255, 255, 0.8)
+  }
+  50%{
+    width: 610rpx;
+    height: 610rpx;
+    border: 1px solid rgba(255, 255, 255, 0.6)
+  }
+  80%{
+    width: 700rpx;
+    height: 700rpx;
+    border: 1px solid rgba(255, 255, 255, 0.4)
+  }
+  99%{
+    width: 375px;
+    height: 375px;
+    border: 1px solid rgba(255, 255, 255, 0.1)
+  }
+  100%{
+    width: 0px;
+    height: 0px;
+    border: 1px solid rgba(255, 255, 255, 0)
+  }
+}
+/* 741rpx */
