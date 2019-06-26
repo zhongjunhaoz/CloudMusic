@@ -97,8 +97,7 @@ Page({
     API.getBanner({
       type: 2
     }).then(res => {
-      // 大厂API接口的维定 code 0 没有问题
-      if (res.code === 200) { //严谨
+      if (res.code === 200) { //更加严谨
         this.setData({
           banner: res.banners
         })
@@ -389,9 +388,10 @@ Page({
 
   // swiper的滑动
 // 第二种方法是直接把slideOffset赋死值，但不兼容
-// 第三种是选择器 class="{{Changeline?'swiper_header_line':'swiper_header_line_after'}}" if current为1则什么什么，if 为2 ，则什么什么。
+// 第三种是选择器 class="{{Changeline?'swiper_header_line_before':'swiper_header_line_after'}}" if current为1则什么什么，if 为2 ，则什么什么。
   changeline:function(e){
-    console.log(e.detail.current)
+    // console.log(e)
+    // console.log(e.detail.current)
     let current = e.detail.current; //获取swiper的current值
     if(e.detail.current === 0){
       this.setData({

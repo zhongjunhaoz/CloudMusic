@@ -1,3 +1,4 @@
+/* play.wxss */
 page, .body {
   height: 100%;
 }

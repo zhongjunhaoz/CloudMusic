@@ -1,3 +1,4 @@
+<!-- play_mv.wxml -->
 <view class="mv_box">
     <video src="{{mv.brs['480']}}" class="mv" autoplay="{{autoplay}}" loop="{{loop}}" direction="{{0}}" show-fullscreen-btn="{{showfullscreenbtn}}"
     show-center-play-btn="{{showcenterplaybtn}}" enable-progress-gesture="{{enableprogressgesture}}" show-mute-btn="{{showmutebtn}}" title="{{mv.name}}"

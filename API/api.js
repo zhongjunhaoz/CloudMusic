@@ -1,3 +1,4 @@
+// api.js
 const API_BASE_URL = 'http://neteasecloudmusicapi.zhaoboy.com';
 const request = (url, data) => { 
   let _url = API_BASE_URL  + url;

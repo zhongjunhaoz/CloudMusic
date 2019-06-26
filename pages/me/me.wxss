@@ -18,7 +18,7 @@
     bottom: 0;
     width:300%;
     height:80%;    
-    filter: blur(15px);
+    filter: blur(35px);
     z-index: -1;
     transform: scale(1.5); /*和网易云音乐对比了一下，发现他们是也是放大1.5倍*/
   }

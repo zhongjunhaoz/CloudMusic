@@ -79,8 +79,7 @@ Page({
     }
     if(e.detail.value!=""){ //解决 如果输入框的值为空时，传值给搜索建议，会报错的bug
       that.searchSuggest();
-    }
-      
+    }  
   },
 
   // 清空page对象data的history数组 重置缓存为[]

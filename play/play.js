@@ -1,3 +1,4 @@
+// play.js
 const API_BASE_URL = 'http://neteasecloudmusicapi.zhaoboy.com';
 const app = getApp();
 
@@ -34,9 +35,6 @@ Page({
       isPlay: true
     })
 
-    // wx.navigateBack({
-    //   delta: 1
-    // })
     // 请求歌曲音频的地址，失败则播放出错，成功则传值给createBgAudio(后台播放管理器，让其后台播放)
     wx.request({
       url: API_BASE_URL + '/song/url',

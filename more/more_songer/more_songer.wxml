@@ -1,3 +1,4 @@
+<!-- 歌手榜结构 -->
 <view wx:for="{{songers}}" wx:key="" class='songer_box' data-id="{{item.id}}" bindtap='handleSheet'>
   <view class='songer_index_box'>
     <text class='songer_index'>{{index + 1}}</text>

@@ -1,6 +1,5 @@
+<!-- play.wxml -->
 <image src="{{song.al.picUrl}}" class="background_img" ></image>
-
-
 <view class="body">
  <!-- 歌名歌手 -->
   <view class="sing-brief">
@@ -17,7 +16,6 @@
       <image src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}" hidden="{{!showLyric}}"/>
     </view>
     <text  hidden="{{showLyric}}" class="songLyric">纯音乐，请欣赏</text>
-
   </view>
   <!-- 暂停播放图标 -->
   <view class="play_suspend">

@@ -1,7 +1,6 @@
+// 歌手榜的js
 const API = require('../../API/api');
 const app = getApp();
-
-
 Page({
 
   data: {

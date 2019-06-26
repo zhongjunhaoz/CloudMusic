@@ -1,4 +1,4 @@
-<!--more/more_songer/moremore_songer.wxml-->
+<!-- more/more_songer/moremore_songer.wxml歌手下面的歌曲 -->
 <view class='search_result_songs'>
   <view wx:for="{{songList}}" wx:key="" class='search_result_song_item songer_box' data-id="{{item.id}}" bindtap='handlePlayAudio'>
     <view class='songer_index_box'>
@@ -8,7 +8,5 @@
       <view class='search_result_song_song_name'>{{item.name}}</view>
       <view class='search_result_song_song_art-album'>{{item.ar[0].name}} - {{item.al.name}}</view>
     </view>
-
   </view>
-
 </view>

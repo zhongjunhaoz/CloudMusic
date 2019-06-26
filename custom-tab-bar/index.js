@@ -1,3 +1,4 @@
+// index.js
 Component({
   data: {
     isShow_index:true,
@@ -26,17 +27,6 @@ Component({
   },
 
   methods: {
-
-    // switchTab(e) {
-    //   console.log(e)
-    //   const data = e.currentTarget.dataset
-    //   const url = data.path
-    //   wx.switchTab({ url })
-    //   this.setData({
-    //     selected: data.index
-    //   })
-    // },
-
     switchTab_index:function(){
       wx.switchTab({
         url:'/pages/index/index'
@@ -46,7 +36,6 @@ Component({
         isShow_me: false,
         isShow_playing: false
       })
-      console.log('乐库变红')
     },
 
     switchTab_playing: function () {
@@ -58,7 +47,6 @@ Component({
         isShow_index: false,
         isShow_me: false
       })
-      console.log('播放变红')
     },
 
     switchTab_me: function () {
@@ -70,7 +58,6 @@ Component({
         isShow_playing: false,
         isShow_index: false
       })
-      console.log('我的变红')
     }
   }
 })

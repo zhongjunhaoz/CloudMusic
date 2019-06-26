@@ -1,3 +1,4 @@
+// 歌手下级路由歌曲列表
 const API_BASE_URL = 'http://neteasecloudmusicapi.zhaoboy.com';
 const app = getApp();
 
@@ -7,7 +8,7 @@ Page({
     songList: []
   },
 
- 
+
   onLoad: function (options) {
     wx.showLoading({
       title: '加载中',
@@ -17,7 +18,7 @@ Page({
     wx.request({
       url: API_BASE_URL + '/artists',
       data: {
-        id: sheetId    
+        id: sheetId
       },
       success: res => {
         const waitForPlay = new Array;
